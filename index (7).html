@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>วิทย์สนุก – คลังข้อสอบวิทยาศาสตร์ การศึกษานอกระบบ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1F2346;--ink2:#4A4F6E;--cream:#FFF6E5;--paper:#FFF9EE;--yellow:#FFC93C;--green:#2FB67A;--green2:#C8F2DA;--pink:#FF8FA3;--pink2:#FFE0E6;--blue:#2F5BE0;--sky:#DCEFFF;--purple:#EAE2FF;--orange:#FFE3C2;--line:#E6DCC6}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'IBM Plex Sans Thai Looped','Sarabun',system-ui,sans-serif;color:var(--ink);background:var(--cream);background-image:radial-gradient(#F0DDB8 1.6px,transparent 1.6px);background-size:28px 28px;min-height:100vh;font-size:16px}
+button,input,select,textarea{font:inherit;color:inherit}
+.disp{font-family:'Mitr','Prompt',system-ui,sans-serif}
+h1,h2,h3{font-family:'Mitr','Prompt',system-ui,sans-serif;margin:0;line-height:1.3}
+a{color:var(--blue)}
+.wrap{max-width:1320px;margin:0 auto;padding:18px 24px 60px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.drop:focus-within{outline:4px solid #FF8A3D;outline-offset:2px}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.logo-badge{width:56px;height:56px;border-radius:18px;background:var(--yellow);border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+.logo b{display:block;font-family:Mitr,sans-serif;font-size:26px;line-height:1.1}
+.logo small{display:block;font-size:13px;font-weight:600;color:var(--ink2)}
+.nav-r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:6px 16px 6px 8px;box-shadow:0 4px 0 var(--ink);font-family:Mitr,sans-serif;font-size:17px;font-weight:600}
+.navlink{background:transparent;border:0;font-weight:700;font-size:16px;padding:10px 16px;border-radius:999px;cursor:pointer;min-height:44px}
+.navlink:hover{background:#fff}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:3px solid var(--ink);background:#fff;border-radius:18px;box-shadow:0 5px 0 var(--ink);font-weight:700;font-size:17px;padding:10px 20px;min-height:52px;cursor:pointer;transition:transform .15s ease;text-decoration:none;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.yellow{background:var(--yellow)}.btn.green{background:var(--green)}.btn.dark{background:var(--ink);color:var(--cream)}.btn.pink{background:var(--pink2)}
+.btn.big{font-size:20px;min-height:60px;padding:12px 28px}
+.btn.sm{min-height:44px;font-size:15px;padding:6px 14px;border-radius:14px;box-shadow:0 3px 0 var(--ink)}
+.icon-btn{width:44px;height:44px;border-radius:14px;border:2.5px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;flex:none}
+.icon-btn:hover{transform:scale(1.07)}
+.chip{min-height:44px;padding:0 16px;border-radius:14px;border:2.5px solid var(--ink);font-size:15px;font-weight:700;background:#fff;box-shadow:0 3px 0 var(--ink);cursor:pointer}
+.chip.on{background:var(--ink);color:var(--cream);box-shadow:none}
+.tag{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700;white-space:nowrap}
+
+/* cards */
+.card{background:#fff;border:3px solid var(--ink);border-radius:30px;box-shadow:8px 8px 0 var(--ink);padding:26px}
+.soft{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:18px 20px}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
+.inp{height:48px;border:2.5px solid var(--ink);border-radius:14px;padding:0 14px;font-size:16px;background:var(--paper);width:100%}
+textarea.inp{height:auto;padding:10px 14px;resize:vertical;min-height:70px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.muted{color:var(--ink2);font-weight:500}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:32px 0 16px}
+.sec-head h2{font-size:32px}
+
+/* hero */
+.hero{position:relative;border-radius:44px;background-color:var(--blue);background-image:radial-gradient(rgba(255,255,255,.16) 2px,transparent 2px);background-size:26px 26px;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:20px;padding:40px 48px;color:#fff}
+.hero h1{font-size:54px;font-weight:700;line-height:1.18}
+.hero h1 span{color:#FFE27A}
+.hero p{font-size:19px;line-height:1.6;color:#EAF0FF;margin:14px 0 22px;max-width:560px}
+.hero .badge{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:999px;padding:5px 14px;font-weight:700;font-size:15px;margin-bottom:16px}
+.hero-art{position:relative;height:340px}
+.hero-art .mascot{position:absolute;left:50%;top:10px;margin-left:-150px}
+.hero-art .bubble{position:absolute;left:0;top:0;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:22px 22px 22px 4px;padding:10px 16px;font-family:Mitr,sans-serif;font-size:17px;box-shadow:0 5px 0 var(--ink);z-index:2}
+.hero-art .mini1{position:absolute;left:0;bottom:10px}.hero-art .mini2{position:absolute;right:0;bottom:30px}
+.hero.small{padding:28px 40px}
+.hero.small .hero-art{height:230px}
+.hero.small h1{font-size:42px}
+.cloud{position:absolute;bottom:-30px;opacity:.16;pointer-events:none}
+
+/* login */
+.login{display:flex;flex-direction:column;gap:16px;color:var(--ink)}
+.login h2{font-size:26px}
+
+/* grades */
+.grades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.gcard .gcode{font-size:14px;font-weight:700;color:var(--ink2)}
+.grid-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.grid-stats .stat b{font-size:26px}.grid-stats .stat span{font-size:13px;line-height:1.3}
+.gcard{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 10px 16px;border:3px solid var(--ink);border-radius:28px;box-shadow:6px 6px 0 var(--ink);cursor:pointer;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.gcard:hover{transform:translateY(-8px) rotate(-1.5deg)}
+.gcard:hover .wig{animation:wiggle .6s ease-in-out infinite}
+.gcard:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.gcard .gnum{font-family:Mitr,sans-serif;font-size:44px;font-weight:700;line-height:1.1}
+.gcard .gsub{font-size:13px;font-weight:600}
+.gcard .go{margin-top:8px;border:2.5px solid var(--ink);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:700}
+.gcard .mine{position:absolute;top:-14px;right:-8px;background:var(--ink);color:var(--cream);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:700;transform:rotate(6deg)}
+.strands{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:28px}
+.strand{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--ink);border-radius:24px;padding:12px 14px}
+.strand .ic{flex:none;width:56px;height:56px;border-radius:16px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center}
+
+/* quiz */
+.qtop{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.prog{flex:1 1 200px;height:26px;background:#fff;border:3px solid var(--ink);border-radius:999px;overflow:hidden}
+.prog>div{height:100%;background-color:var(--green);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.25) 0 10px,transparent 10px 20px);border-right:3px solid var(--ink);transition:width .4s ease}
+.qgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start}
+.qcard{background:#fff;border:3px solid var(--ink);border-radius:36px;box-shadow:10px 10px 0 var(--ink);padding:34px 38px;display:flex;flex-direction:column;gap:24px}
+.qcard h2{font-size:32px;font-weight:600;line-height:1.45}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.opt{display:flex;align-items:center;gap:14px;min-height:84px;padding:12px 18px;border-radius:22px;border:3px solid var(--ink);font-size:20px;font-weight:600;line-height:1.4;text-align:left;background:#fff;box-shadow:0 6px 0 var(--ink);cursor:pointer;transition:transform .12s ease}
+.opt:hover:not(:disabled){transform:translateY(-3px)}
+.opt:disabled{cursor:default;box-shadow:0 3px 0 var(--ink)}
+.opt .l{flex:none;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Mitr,sans-serif;font-size:22px;border:3px solid var(--ink);background:var(--cream)}
+.opt.right{background:var(--green2)}.opt.right .l{background:var(--green)}
+.opt.wrong{background:#FFD6DE}.opt.wrong .l{background:var(--pink)}
+.opt.dim{opacity:.5}
+.opt .t{flex:1}
+.fb{display:flex;align-items:center;gap:20px;border:3px solid var(--ink);border-radius:26px;padding:20px 24px;flex-wrap:wrap}
+.fb .txt{flex:1 1 280px;display:flex;flex-direction:column;gap:6px}
+.fb .ttl{font-family:Mitr,sans-serif;font-size:22px;font-weight:600}
+.side{display:flex;flex-direction:column;gap:22px}
+.helper{border:3px solid var(--ink);border-radius:32px;padding:24px 20px 16px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:6px 6px 0 var(--ink)}
+.helper .say{align-self:stretch;background:#fff;border:3px solid var(--ink);border-radius:20px;padding:12px 16px;font-family:Mitr,sans-serif;font-size:18px;text-align:center;line-height:1.5}
+.dots{display:flex;flex-wrap:wrap;gap:8px}
+.dot{width:42px;height:42px;border-radius:14px;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:Mitr,sans-serif;font-weight:600;background:#EFE7D6}
+.dot.ok{background:var(--green)}.dot.no{background:var(--pink)}.dot.cur{background:var(--yellow);transform:scale(1.1)}
+
+/* result */
+.result{position:relative;display:grid;grid-template-columns:420px minmax(0,1fr);gap:30px}
+.rleft{display:flex;flex-direction:column;align-items:center;gap:12px;background:#FFF1C7;border:3px solid var(--ink);border-radius:32px;padding:26px 20px;text-align:center}
+.review{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border:3px solid var(--ink);border-radius:22px}
+.rnum{flex:none;width:38px;height:38px;border-radius:12px;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:Mitr,sans-serif;font-weight:600}
+.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+.confetti{position:absolute;top:-30px;border:2px solid var(--ink);animation:fall linear forwards}
+.save{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;border:2.5px solid var(--ink);border-radius:14px;padding:8px 14px;background:#fff}
+
+/* teacher */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{display:flex;align-items:center;gap:8px;border:3px solid var(--ink);border-radius:18px;padding:10px 18px;font-weight:700;font-size:16px;background:#fff;cursor:pointer;min-height:52px}
+.tab.on{background:var(--ink);color:var(--cream)}
+.stat{display:flex;align-items:center;gap:14px;padding:14px 18px;border:3px solid var(--ink);border-radius:22px;box-shadow:5px 5px 0 var(--ink)}
+.stat b{display:block;font-family:Mitr,sans-serif;font-size:30px;line-height:1.1}
+.stat span{font-size:14px;font-weight:600}
+.bank{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:26px;align-items:start}
+.bank.noedit{grid-template-columns:minmax(0,1fr)}
+.qitem{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-bottom:2px dashed var(--line)}
+.qitem:hover{background:var(--paper)}
+.qitem .num{flex:none;font-family:Mitr,sans-serif;font-weight:600;color:var(--ink2);width:40px}
+.qitem .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.list{background:#fff;border:3px solid var(--ink);border-radius:26px;overflow:hidden}
+.list-head{background:var(--ink);color:var(--cream);padding:12px 18px;font-weight:700;display:flex;justify-content:space-between;gap:10px}
+.list-body{max-height:640px;overflow-y:auto}
+.editor{position:sticky;top:12px;display:flex;flex-direction:column;gap:12px}
+.optrow{display:flex;align-items:center;gap:10px}
+.optrow input[type=radio]{width:22px;height:22px;accent-color:var(--green);margin:0;flex:none}
+.optrow .lt{flex:none;width:34px;height:34px;border-radius:10px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:Mitr,sans-serif;font-weight:600;background:var(--cream)}
+.empty{padding:40px;text-align:center;font-weight:600;color:var(--ink2)}
+table.t{width:100%;border-collapse:collapse;font-size:15px}
+table.t th{background:var(--ink);color:var(--cream);text-align:left;padding:10px 12px;font-weight:700;position:sticky;top:0}
+table.t td{padding:10px 12px;border-bottom:2px dashed var(--line);vertical-align:top}
+table.t td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tbl{background:#fff;border:3px solid var(--ink);border-radius:24px;overflow:auto;max-height:520px}
+.bars{display:flex;align-items:flex-end;gap:14px;height:220px;padding:10px 6px 0;border-bottom:2px solid var(--ink)}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px;position:relative}
+.bar .v{font-family:Mitr,sans-serif;font-weight:600;font-size:16px}
+.bar .col{width:70%;max-width:90px;background:var(--blue);border-radius:4px 4px 0 0;min-height:2px}
+.bar:hover .col{background:#1E3FA8}
+.bar .tip{display:none;position:absolute;bottom:100%;background:var(--ink);color:#fff;border-radius:10px;padding:6px 10px;font-size:13px;white-space:nowrap;z-index:3}
+.bar:hover .tip{display:block}
+.blabels{display:flex;gap:14px;padding:8px 6px 0}
+.blabels span{flex:1;text-align:center;font-size:13px;font-weight:600;color:var(--ink2)}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:320px;background:#fff;border:4px dashed var(--ink);border-radius:30px;text-align:center;padding:24px;cursor:pointer;transition:background .2s}
+.drop:hover,.drop.over{background:#FFF1C7}
+.drop:hover .ficon{animation:wiggle .6s ease-in-out infinite}
+.impitem{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:14px 16px;box-shadow:0 4px 0 var(--ink);display:grid;grid-template-columns:auto minmax(0,1fr) 230px;gap:14px}
+.impitem.off{opacity:.7}
+.impitem .ops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}
+.impitem .ops span{border:2px solid var(--ink);border-radius:10px;padding:5px 10px;font-size:14px;background:var(--paper)}
+.impitem .ops span.ok{background:var(--green2)}
+.impitem .ops span.miss{border-style:dashed;color:#B3263E;border-color:#E8435F}
+.warn{display:inline-block;background:var(--orange);border:2px solid var(--ink);border-radius:10px;padding:2px 10px;font-size:13px;font-weight:700;margin-top:8px}
+.demo{background:#FFF1C7;border:2.5px dashed var(--ink);border-radius:18px;padding:10px 16px;font-weight:600;font-size:14px;margin-bottom:18px}
+details.raw summary{cursor:pointer;font-weight:700}
+details.raw pre{white-space:pre-wrap;background:var(--paper);border:2px dashed var(--line);border-radius:14px;padding:12px;max-height:240px;overflow:auto;font-family:inherit;font-size:14px}
+
+/* overlay + toast */
+.busy{position:fixed;inset:0;background:rgba(31,35,70,.45);display:flex;align-items:center;justify-content:center;z-index:80}
+.busy .box{background:#fff;border:3px solid var(--ink);border-radius:26px;padding:24px 30px;display:flex;align-items:center;gap:16px;font-family:Mitr,sans-serif;font-size:19px;box-shadow:8px 8px 0 var(--ink)}
+.spinner{width:36px;height:36px;border-radius:50%;border:5px solid #E9E3D6;border-top-color:var(--blue);animation:spin .8s linear infinite}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.toast{background:var(--ink);color:#fff;border-radius:16px;padding:12px 20px;font-weight:600;box-shadow:0 6px 0 rgba(0,0,0,.2);animation:pop .3s ease both;max-width:90vw}
+.toast.err{background:#B3263E}
+.devnote{background:#fff;border:2.5px dashed var(--ink);border-radius:14px;padding:8px 14px;font-size:14px;font-weight:600;margin-bottom:16px}
+
+/* print certificate */
+#printArea{display:none}
+@media print{body>*:not(#printArea){display:none!important}#printArea{display:block}#printArea img{width:100%;display:block}@page{size:A4 landscape;margin:0}body{background:#fff}}
+
+/* motion */
+.float{animation:float 4s ease-in-out infinite}.float2{animation:float 5s ease-in-out -2s infinite}
+.spin-slow{animation:spin 16s linear infinite;transform-origin:160px 170px}
+.wave{animation:wave 1.8s ease-in-out infinite;transform-origin:88px 178px}
+.twinkle{animation:twinkle 2.4s ease-in-out infinite}
+.bounce{animation:bounce 1.6s ease-in-out infinite}
+.pop{animation:pop .45s cubic-bezier(.3,1.7,.5,1) both}
+.flame{animation:flame .22s ease-in-out infinite alternate;transform-origin:60px 84px}
+.scan{animation:scan 1.6s ease-in-out infinite alternate}
+.stripes{animation:stripes 1s linear infinite;background-color:var(--yellow);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.45) 0 10px,transparent 10px 20px);height:100%}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wave{0%,100%{transform:rotate(0)}50%{transform:rotate(-18deg)}}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px)}}
+@keyframes pop{0%{opacity:0;transform:scale(.9) translateY(8px)}100%{opacity:1;transform:none}}
+@keyframes flame{from{transform:scaleY(.8)}to{transform:scaleY(1.15)}}
+@keyframes fall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(110vh) rotate(720deg)}}
+@keyframes scan{from{transform:translate(-50px,-8px) rotate(-8deg)}to{transform:translate(50px,10px) rotate(8deg)}}
+@keyframes stripes{from{background-position:0 0}to{background-position:40px 0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* responsive */
+@media (max-width:1100px){
+  .strands{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qgrid,.bank,.result{grid-template-columns:minmax(0,1fr)}
+  .side{flex-direction:row;flex-wrap:wrap}.side>*{flex:1 1 260px}
+  .editor{position:static;order:-1}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .wrap{padding:12px 16px 48px}
+  .hero,.hero.small{grid-template-columns:1fr;padding:26px 22px;border-radius:32px}
+  .hero h1{font-size:34px}.hero.small h1{font-size:30px}.hero p{font-size:17px}
+  .hero-art{height:230px}.hero-art .mascot{transform:scale(.72);transform-origin:top center}
+  .hero.small .hero-art{display:none}
+  .grades{grid-template-columns:1fr;gap:14px}
+  .strands{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .qcard{padding:22px 18px;border-radius:28px}.qcard h2{font-size:24px}
+  .opt{font-size:18px;min-height:68px}
+  .sec-head h2{font-size:26px}
+  .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .grid2{grid-template-columns:1fr}
+  .impitem{grid-template-columns:auto minmax(0,1fr)}.impitem .meta{grid-column:1/-1}
+  .impitem .ops{grid-template-columns:1fr}
+  .logo b{font-size:22px}.logo-badge{width:48px;height:48px}
+  .card{padding:20px;border-radius:26px;box-shadow:6px 6px 0 var(--ink)}
+  .side .helper{display:none}
+}
+</style>
+</head>
+<body>
+<div id="app" class="wrap"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ================= ข้อมูลตั้งต้น (ใช้เฉพาะโหมดทดลองเมื่อเปิดไฟล์นอก Apps Script) ================= */
+var SEED = [
+    [1,"process","ขั้นแรกของวิธีการทางวิทยาศาสตร์คือข้อใด",["สรุปผล","กำหนดปัญหา","ทดลอง","ตั้งสมมติฐาน"],1,"วิธีการทางวิทยาศาสตร์เริ่มจากกำหนดปัญหา แล้วตั้งสมมติฐาน ทดลองหรือรวบรวมข้อมูล วิเคราะห์ และสรุปผล"],
+    [1,"process","การใช้ตา หู จมูก ลิ้น และผิวกาย สำรวจสิ่งต่าง ๆ เป็นทักษะกระบวนการทางวิทยาศาสตร์ข้อใด",["การสังเกต","การคำนวณ","การพยากรณ์","การตีความหมายข้อมูล"],0,"การสังเกตคือการใช้ประสาทสัมผัสทั้งห้าเก็บรายละเอียดของสิ่งต่าง ๆ โดยไม่ใส่ความคิดเห็นของตนเอง"],
+    [1,"process","ทดลองปลูกถั่วเพื่อดูว่าปริมาณน้ำมีผลต่อการเจริญเติบโตหรือไม่ ข้อใดเป็นตัวแปรต้น",["ความสูงของต้นถั่ว","ชนิดของดิน","ขนาดกระถาง","ปริมาณน้ำที่รด"],3,"ตัวแปรต้นคือสิ่งที่ผู้ทดลองตั้งใจเปลี่ยน ในที่นี้คือปริมาณน้ำ ส่วนความสูงของต้นถั่วเป็นตัวแปรตาม"],
+    [1,"life","ข้อใดเป็นผู้ผลิตในระบบนิเวศ",["กระต่าย","เห็ด","หญ้า","เหยี่ยว"],2,"หญ้าสร้างอาหารเองได้ด้วยการสังเคราะห์ด้วยแสง จึงเป็นผู้ผลิต ส่วนเห็ดเป็นผู้ย่อยสลาย"],
+    [1,"life","สิ่งมีชีวิตทุกชนิดมีลักษณะร่วมกันในข้อใด",["ต้องการอาหารและสืบพันธุ์ได้","เคลื่อนที่ด้วยขา","สร้างอาหารเองได้","มีกระดูกสันหลัง"],1,"สิ่งมีชีวิตทุกชนิดต้องการอาหาร เจริญเติบโต และสืบพันธุ์ได้"],
+    [1,"life","การกระทำใดช่วยอนุรักษ์ทรัพยากรน้ำ",["ปิดก๊อกน้ำขณะแปรงฟัน","ทิ้งขยะลงคลอง","ล้างรถด้วยการเปิดน้ำไหลตลอดเวลา","ปล่อยน้ำเสียลงแม่น้ำ"],0,"การปิดก๊อกน้ำเมื่อไม่ใช้ ช่วยลดการใช้น้ำโดยไม่จำเป็น"],
+    [1,"matter","การแยกทรายออกจากน้ำ ควรใช้วิธีใด",["การระเหยแห้ง","การใช้แม่เหล็ก","การหยิบออกทีละเม็ด","การกรอง"],3,"ทรายไม่ละลายน้ำ จึงแยกออกได้ด้วยการกรอง"],
+    [1,"matter","สารในข้อใดมีสถานะเป็นของเหลวที่อุณหภูมิห้อง",["เกลือ","น้ำตาลทราย","น้ำปลา","ก้อนน้ำแข็ง"],2,"น้ำปลาไหลได้และมีรูปร่างตามภาชนะ จึงเป็นของเหลว"],
+    [1,"matter","เมื่อใช้น้ำยาทำความสะอาดในบ้าน ข้อใดปฏิบัติถูกต้อง",["ผสมน้ำยาหลายชนิดเข้าด้วยกัน","อ่านฉลากและใช้ตามวิธีที่ระบุ","เก็บไว้ในขวดน้ำดื่ม","ใช้มือเปล่าสัมผัสน้ำยาเข้มข้น"],1,"ควรอ่านฉลากก่อนใช้ ไม่ผสมน้ำยาต่างชนิดกัน เพราะอาจเกิดแก๊สพิษได้"],
+    [1,"energy","ข้อใดช่วยประหยัดพลังงานไฟฟ้าในบ้าน",["เปลี่ยนมาใช้หลอดไฟ LED","เปิดตู้เย็นทิ้งไว้นาน ๆ","เปิดไฟทิ้งไว้ตอนกลางวัน","เสียบปลั๊กเครื่องใช้ทิ้งไว้ตลอด"],0,"หลอด LED ใช้พลังงานไฟฟ้าน้อยกว่าหลอดไส้เมื่อให้ความสว่างใกล้เคียงกัน"],
+    [1,"energy","แรงที่ทำให้วัตถุตกลงสู่พื้นเสมอ คือแรงใด",["แรงเสียดทาน","แรงแม่เหล็ก","แรงลอยตัว","แรงโน้มถ่วงของโลก"],3,"โลกมีแรงโน้มถ่วงดึงดูดวัตถุเข้าหาโลก วัตถุจึงตกลงสู่พื้น"],
+    [1,"energy","ก่อนซ่อมอุปกรณ์ไฟฟ้าในบ้าน ควรทำสิ่งใดเป็นอันดับแรก",["ใช้มือเปียกจับสายไฟ","ยืนบนพื้นที่เปียกน้ำ","ตัดไฟโดยปิดเบรกเกอร์หรือสะพานไฟ","ถอดรองเท้าก่อนซ่อม"],2,"ต้องตัดกระแสไฟฟ้าก่อนเสมอ เพื่อป้องกันไฟฟ้าดูด"],
+    [1,"astro","ปรากฏการณ์กลางวันกลางคืนเกิดจากสาเหตุใด",["ดวงอาทิตย์หมุนรอบโลก","โลกหมุนรอบตัวเอง","ดวงจันทร์บังดวงอาทิตย์","เมฆบังแสงแดด"],1,"โลกหมุนรอบตัวเอง ด้านที่หันเข้าหาดวงอาทิตย์เป็นกลางวัน ด้านตรงข้ามเป็นกลางคืน"],
+    [1,"astro","ข้างขึ้นข้างแรมครบ 1 รอบ ใช้เวลาประมาณเท่าใด",["ประมาณ 29.5 วัน","1 วัน","7 วัน","365 วัน"],0,"ดวงจันทร์เปลี่ยนรูปร่างจากเดือนมืดจนกลับมาเดือนมืดอีกครั้ง ใช้เวลาประมาณ 29.5 วัน"],
+    [1,"astro","ฤดูกาลบนโลกเกิดจากสาเหตุใด",["ดวงจันทร์บังดวงอาทิตย์","โลกหมุนรอบตัวเอง","เมฆปกคลุมโลก","แกนโลกเอียงขณะโคจรรอบดวงอาทิตย์"],3,"แกนโลกเอียง ทำให้แต่ละพื้นที่ได้รับแสงอาทิตย์ต่างกันในแต่ละช่วงของปี จึงเกิดฤดูกาล"],
+    [2,"process","การคาดคะเนคำตอบล่วงหน้าอย่างมีเหตุผลก่อนการทดลอง เรียกว่าอะไร",["ข้อสรุป","ตัวแปรควบคุม","สมมติฐาน","ทฤษฎี"],2,"สมมติฐานคือคำตอบที่คาดไว้ล่วงหน้า ซึ่งจะตรวจสอบด้วยการทดลอง"],
+    [2,"process","ทดลองเปรียบเทียบปุ๋ย 2 ชนิดต่อการเจริญของผักบุ้ง ข้อใดควรเป็นตัวแปรควบคุม",["ชนิดของปุ๋ย","ปริมาณน้ำและแสงที่ได้รับ","ความสูงของผักบุ้ง","จำนวนใบที่เพิ่มขึ้น"],1,"ตัวแปรควบคุมคือสิ่งที่ต้องให้เหมือนกันทุกชุด เช่น น้ำและแสง เพื่อให้ผลต่างมาจากชนิดปุ๋ยเท่านั้น"],
+    [2,"process","โครงงานที่เก็บข้อมูลจากธรรมชาติโดยไม่ได้ควบคุมตัวแปร จัดเป็นโครงงานประเภทใด",["ประเภทสำรวจ","ประเภททดลอง","ประเภทสิ่งประดิษฐ์","ประเภททฤษฎี"],0,"โครงงานประเภทสำรวจเป็นการสำรวจและรวบรวมข้อมูล โดยไม่มีการกำหนดตัวแปรที่ต้องควบคุม"],
+    [2,"life","ส่วนประกอบใดพบในเซลล์พืช แต่ไม่พบในเซลล์สัตว์",["นิวเคลียส","เยื่อหุ้มเซลล์","ไมโทคอนเดรีย","ผนังเซลล์และคลอโรพลาสต์"],3,"เซลล์พืชมีผนังเซลล์และคลอโรพลาสต์ ส่วนนิวเคลียส เยื่อหุ้มเซลล์ และไมโทคอนเดรีย พบได้ทั้งเซลล์พืชและเซลล์สัตว์"],
+    [2,"life","การสังเคราะห์ด้วยแสงของพืช ได้ผลผลิตเป็นสารใด",["แก๊สคาร์บอนไดออกไซด์และน้ำ","โปรตีนและไขมัน","น้ำตาลและแก๊สออกซิเจน","แก๊สไนโตรเจน"],2,"พืชใช้แก๊สคาร์บอนไดออกไซด์ น้ำ และพลังงานแสง สร้างน้ำตาล และปล่อยแก๊สออกซิเจนออกมา"],
+    [2,"life","ภาวะเรือนกระจกที่รุนแรงขึ้น มีสาเหตุหลักจากแก๊สใดในบรรยากาศเพิ่มขึ้น",["ออกซิเจน","คาร์บอนไดออกไซด์","ไนโตรเจน","ฮีเลียม"],1,"การเผาเชื้อเพลิงและการตัดไม้ทำลายป่าทำให้แก๊สคาร์บอนไดออกไซด์เพิ่มขึ้น ซึ่งกักเก็บความร้อนไว้ในบรรยากาศ"],
+    [2,"matter","ข้อใดเป็นสารประกอบ",["น้ำ (H₂O)","แก๊สออกซิเจน (O₂)","ทองคำ","เหล็ก"],0,"น้ำเกิดจากธาตุไฮโดรเจนและออกซิเจนรวมกันทางเคมี จึงเป็นสารประกอบ ส่วนข้ออื่นเป็นธาตุ"],
+    [2,"matter","สารละลายที่มีค่า pH น้อยกว่า 7 มีสมบัติเป็นอย่างไร",["เป็นเบส","เป็นกลาง","เป็นโลหะ","เป็นกรด"],3,"pH น้อยกว่า 7 เป็นกรด เท่ากับ 7 เป็นกลาง และมากกว่า 7 เป็นเบส"],
+    [2,"matter","น้ำเชื่อมเกิดจากการละลายน้ำตาลในน้ำ ข้อใดเป็นตัวทำละลาย",["น้ำตาล","ภาชนะ","น้ำ","ความร้อน"],2,"ตัวทำละลายคือสารที่มีปริมาณมากกว่าและมีสถานะเดียวกับสารละลาย ในที่นี้คือน้ำ ส่วนน้ำตาลเป็นตัวละลาย"],
+    [2,"energy","ออกแรงผลักกล่อง 50 นิวตัน ทำให้กล่องเคลื่อนที่ตามแนวแรงได้ 4 เมตร งานที่ทำมีค่าเท่าใด",["12.5 จูล","200 จูล","54 จูล","46 จูล"],1,"งาน = แรง × ระยะทางตามแนวแรง = 50 × 4 = 200 จูล"],
+    [2,"energy","แรงเสียดทานมีทิศทางอย่างไร",["ตรงข้ามกับทิศการเคลื่อนที่","ทิศเดียวกับการเคลื่อนที่","ตั้งฉากขึ้นด้านบนเสมอ","ไม่มีทิศทาง"],0,"แรงเสียดทานต้านการเคลื่อนที่ จึงมีทิศตรงข้ามกับทิศที่วัตถุเคลื่อนที่หรือพยายามจะเคลื่อนที่"],
+    [2,"energy","เครื่องใช้ไฟฟ้ากำลัง 1,000 วัตต์ ใช้งาน 2 ชั่วโมง ใช้พลังงานไฟฟ้ากี่หน่วย",["0.5 หน่วย","20 หน่วย","2,000 หน่วย","2 หน่วย"],3,"1 หน่วย = 1 กิโลวัตต์-ชั่วโมง ดังนั้น 1 กิโลวัตต์ × 2 ชั่วโมง = 2 หน่วย"],
+    [2,"astro","ดาวฤกษ์ที่อยู่ใกล้โลกมากที่สุดคือดาวใด",["ดาวพร็อกซิมาเซนทอรี","ดาวศุกร์","ดวงอาทิตย์","ดาวเหนือ"],2,"ดวงอาทิตย์เป็นดาวฤกษ์ที่ใกล้โลกที่สุด ส่วนดาวศุกร์เป็นดาวเคราะห์"],
+    [2,"astro","น้ำขึ้นน้ำลงเกิดจากสาเหตุหลักใด",["ลมมรสุม","แรงดึงดูดของดวงจันทร์และดวงอาทิตย์ที่มีต่อโลก","ฝนตกหนัก","แผ่นดินไหว"],1,"แรงดึงดูดของดวงจันทร์เป็นหลัก ร่วมกับดวงอาทิตย์ ดึงน้ำบนโลกให้โป่งนูน จึงเกิดน้ำขึ้นน้ำลง"],
+    [2,"astro","ดาวเคราะห์ในข้อใดอยู่ไกลดวงอาทิตย์มากกว่าโลก",["ดาวพฤหัสบดี","ดาวพุธ","ดาวศุกร์","ดวงจันทร์"],0,"ดาวพฤหัสบดีอยู่ถัดจากดาวอังคารออกไป จึงอยู่ไกลดวงอาทิตย์กว่าโลก ส่วนดวงจันทร์เป็นบริวารของโลก"],
+    [3,"process","ข้อใดเป็นข้อมูลเชิงปริมาณ",["ใบไม้มีสีเขียวเข้ม","ดอกไม้มีกลิ่นหอม","ผิวส้มขรุขระ","ผลมะม่วงหนัก 250 กรัม"],3,"ข้อมูลเชิงปริมาณเป็นตัวเลขที่วัดได้พร้อมหน่วย เช่น 250 กรัม"],
+    [3,"process","นักวิทยาศาสตร์ทดลองซ้ำหลายครั้งเพื่อจุดประสงค์ใด",["เพื่อเปลี่ยนสมมติฐานทุกครั้ง","เพื่อให้ได้ผลตามที่ต้องการ","เพื่อให้ผลการทดลองเชื่อถือได้มากขึ้น","เพื่อใช้สารเคมีให้หมด"],2,"การทดลองซ้ำช่วยลดความคลาดเคลื่อน ทำให้ผลการทดลองน่าเชื่อถือมากขึ้น"],
+    [3,"process","ข้อใดแสดงเจตคติทางวิทยาศาสตร์ที่ดี",["แก้ข้อมูลให้ตรงกับสมมติฐาน","บันทึกผลตามที่สังเกตได้จริง แม้ไม่ตรงกับที่คาดไว้","เชื่อข่าวที่แชร์ต่อกันมาทันที","สรุปผลก่อนทำการทดลอง"],1,"ความซื่อสัตย์ต่อข้อมูลเป็นเจตคติทางวิทยาศาสตร์ที่สำคัญ"],
+    [3,"life","สารพันธุกรรมที่ควบคุมลักษณะของสิ่งมีชีวิตคือข้อใด",["DNA","ไขมัน","กลูโคส","วิตามินซี"],0,"DNA เป็นสารพันธุกรรมที่เก็บข้อมูลลักษณะต่าง ๆ และถ่ายทอดไปยังรุ่นลูก"],
+    [3,"life","ถ้าพ่อและแม่มีจีโนไทป์ Aa ทั้งคู่ โอกาสที่ลูกจะมีจีโนไทป์ aa เป็นเท่าใด",["ร้อยละ 0","ร้อยละ 50","ร้อยละ 75","ร้อยละ 25"],3,"Aa × Aa ให้ลูก AA : Aa : aa = 1 : 2 : 1 โอกาสได้ aa จึงเป็น 1 ใน 4 หรือร้อยละ 25"],
+    [3,"life","ข้อใดเป็นการใช้เทคโนโลยีชีวภาพ",["การเผาป่าเพื่อทำไร่","การขุดบ่อบาดาล","การเพาะเลี้ยงเนื้อเยื่อเพื่อขยายพันธุ์กล้วยไม้","การสร้างเขื่อนกั้นน้ำ"],2,"การเพาะเลี้ยงเนื้อเยื่อใช้ความรู้ทางชีววิทยาขยายพันธุ์พืชได้จำนวนมากในเวลาสั้น"],
+    [3,"matter","ธาตุหมู่ 1 ในตารางธาตุ เช่น โซเดียมและโพแทสเซียม มีสมบัติตรงกับข้อใด",["เป็นแก๊สเฉื่อย","เป็นโลหะที่ทำปฏิกิริยากับน้ำได้ดี","เป็นอโลหะสีเหลือง","ไม่ทำปฏิกิริยากับสารใดเลย"],1,"ธาตุหมู่ 1 เป็นโลหะที่ว่องไวต่อปฏิกิริยา ทำปฏิกิริยากับน้ำได้ดี"],
+    [3,"matter","ปิโตรเลียมถูกแยกเป็นแก๊สหุงต้ม เบนซิน และดีเซล ด้วยวิธีใด",["การกลั่นลำดับส่วน","การกรอง","การตกผลึก","การระเหยแห้ง"],0,"การกลั่นลำดับส่วนแยกสารตามจุดเดือดที่ต่างกัน"],
+    [3,"matter","สารชีวโมเลกุลใดเป็นแหล่งพลังงานหลักของร่างกาย และมีหน่วยย่อยเป็นน้ำตาล",["โปรตีน","กรดนิวคลีอิก","วิตามิน","คาร์โบไฮเดรต"],3,"คาร์โบไฮเดรต เช่น แป้ง ประกอบด้วยน้ำตาลโมเลกุลเดี่ยว และเป็นแหล่งพลังงานหลักของร่างกาย"],
+    [3,"energy","รถยนต์เคลื่อนที่ได้ 120 กิโลเมตร ในเวลา 2 ชั่วโมง อัตราเร็วเฉลี่ยเท่ากับเท่าใด",["30 กิโลเมตรต่อชั่วโมง","120 กิโลเมตรต่อชั่วโมง","60 กิโลเมตรต่อชั่วโมง","240 กิโลเมตรต่อชั่วโมง"],2,"อัตราเร็วเฉลี่ย = ระยะทาง ÷ เวลา = 120 ÷ 2 = 60 กิโลเมตรต่อชั่วโมง"],
+    [3,"energy","ตามกฎการเคลื่อนที่ข้อที่ 3 ของนิวตัน ขณะเราเดินบนพื้น ข้อใดถูกต้อง",["เท้าดันพื้น แต่พื้นไม่ออกแรงกลับ","เท้าดันพื้นไปข้างหลัง พื้นดันเท้าไปข้างหน้า","พื้นดึงเท้าลงเพียงอย่างเดียว","เราเดินได้เพราะแรงแม่เหล็ก"],1,"แรงกิริยาและแรงปฏิกิริยามีขนาดเท่ากันแต่ทิศตรงข้าม พื้นดันเท้าไปข้างหน้า เราจึงเดินไปได้"],
+    [3,"energy","เสียงระดับใดอาจเป็นอันตรายต่อการได้ยิน หากฟังต่อเนื่องเป็นเวลานาน",["มากกว่า 85 เดซิเบล","30 เดซิเบล","50 เดซิเบล","60 เดซิเบล"],0,"เสียงที่ดังเกิน 85 เดซิเบลต่อเนื่องหลายชั่วโมง อาจทำให้หูเสื่อมได้"],
+    [3,"astro","หน่วยที่ใช้บอกระยะทางระหว่างดาวฤกษ์คือหน่วยใด",["กิโลกรัม","นิวตัน","องศาเซลเซียส","ปีแสง"],3,"ปีแสงคือระยะทางที่แสงเดินทางได้ใน 1 ปี ใช้บอกระยะทางที่ไกลมากในอวกาศ"],
+    [3,"astro","ดาวเทียมสื่อสารที่ดูเหมือนอยู่นิ่งเหนือจุดเดิมบนโลก โคจรในวงโคจรแบบใด",["วงโคจรผ่านขั้วโลก","วงโคจรรอบดวงจันทร์","วงโคจรค้างฟ้า","วงโคจรรอบดวงอาทิตย์"],2,"ดาวเทียมวงโคจรค้างฟ้าโคจรรอบโลกในเวลาเท่ากับที่โลกหมุนรอบตัวเอง จึงดูเหมือนอยู่นิ่ง"],
+    [3,"astro","สีของดาวฤกษ์บอกข้อมูลใดของดาวได้",["อายุของผู้สังเกต","อุณหภูมิผิวของดาว","มวลของโลก","จำนวนดาวเคราะห์บริวาร"],1,"ดาวสีน้ำเงินมีอุณหภูมิผิวสูง ส่วนดาวสีแดงมีอุณหภูมิผิวต่ำกว่า"]
+  ];
+
+var LET = ['ก','ข','ค','ง'];
+/* ระดับตามหลักสูตรการศึกษานอกระบบระดับการศึกษาขั้นพื้นฐาน พ.ศ. 2551 */
+var LV = ['',
+  {short:'ประถม',label:'ระดับประถมศึกษา',code:'พว11001',icon:'sun'},
+  {short:'ม.ต้น',label:'ระดับมัธยมศึกษาตอนต้น',code:'พว21001',icon:'rocket'},
+  {short:'ม.ปลาย',label:'ระดับมัธยมศึกษาตอนปลาย',code:'พว31001',icon:'atom'}];
+var SK = ['process','life','matter','energy','astro'];
+var STR = {
+  process:{label:'กระบวนการทางวิทยาศาสตร์',short:'กระบวนการ',tint:'#FFF1C7',desc:'ทักษะกระบวนการ วิธีการทางวิทยาศาสตร์ โครงงาน'},
+  life:{label:'สิ่งมีชีวิตและสิ่งแวดล้อม',short:'สิ่งมีชีวิต',tint:'#D8F5E6',desc:'เซลล์ ระบบนิเวศ พันธุกรรม ทรัพยากรธรรมชาติ'},
+  matter:{label:'สารเพื่อชีวิต',short:'สาร',tint:'#FFE0E6',desc:'สมบัติของสาร การแยกสาร สารในชีวิตประจำวัน'},
+  energy:{label:'แรงและพลังงาน',short:'แรงและพลังงาน',tint:'#EAE2FF',desc:'แรง การเคลื่อนที่ พลังงาน ไฟฟ้า'},
+  astro:{label:'ดาราศาสตร์และอวกาศ',short:'ดาราศาสตร์',tint:'#DCEFFF',desc:'โลก ดวงอาทิตย์ ดวงจันทร์ ดวงดาว'}
+};
+var TAMBONS = ['ศกร.ระดับตำบลหนองบัว', 'ศกร.ระดับตำบลหนองภัยศูนย์', 'ศกร.ระดับตำบลโพธิ์ชัย', 'ศกร.ระดับตำบลหนองสวรรค์', 'ศกร.ระดับตำบลหัวนา', 'ศกร.ระดับตำบลบ้านขาม', 'ศกร.ระดับตำบลนามะเฟือง', 'ศกร.ระดับตำบลบ้านพร้าว', 'ศกร.ระดับตำบลโนนขมิ้น', 'ศกร.ระดับตำบลลำภู', 'ศกร.ระดับตำบลกุดจิก', 'ศกร.ระดับตำบลโนนทัน', 'ศกร.ระดับตำบลนาคำไฮ', 'ศกร.ระดับตำบลป่าไม้งาม', 'ศกร.ระดับตำบลหนองหว้า'];
+var CERT = { org: 'ศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองหนองบัวลำภู', signer: 'นายชยาวิชญ์ ธาตุชัย', position: 'ผู้อำนวยการศูนย์ส่งเสริมการเรียนรู้ระดับอำเภอเมืองหนองบัวลำภู' };
+var PASS_PCT = 60;
+var SIG = null;  // โหลดลายเซ็นจากระบบหลังบ้านเมื่อวาดเกียรติบัตร
+var GCOL = ['#FFC93C','#FFC93C','#5FD39B','#B79BFF'];
+var GTINT = ['#FFF1C7','#FFF1C7','#D8F5E6','#EAE2FF'];
+function lvShort(g) { return LV[g] ? LV[g].short : 'ทุกระดับ'; }
+function lvOptions(sel, withAll, short) { return (withAll ? '<option value="0">ทุกระดับ</option>' : '') + [1, 2, 3].map(function (g) { return '<option value="' + g + '"' + (Number(sel) === g ? ' selected' : '') + '>' + (short ? LV[g].short : LV[g].label.replace('ระดับ', '')) + '</option>'; }).join(''); }
+function skOptions(sel, withAll, short) { return (withAll ? '<option value="all"' + (sel === 'all' ? ' selected' : '') + '>ทุกหัวข้อ</option>' : '') + SK.map(function (k) { return '<option value="' + k + '"' + (sel === k ? ' selected' : '') + '>' + (short ? STR[k].short : STR[k].label) + '</option>'; }).join(''); }
+
+/* ================= ภาพการ์ตูน ================= */
+var INK = '#1F2346';
+var SVG = {
+  logo: '<svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#1F2346" stroke-width="2.6"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#1F2346" stroke-width="2.6" transform="rotate(60 20 20)"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#1F2346" stroke-width="2.6" transform="rotate(-60 20 20)"/><circle cx="20" cy="20" r="4.5" fill="#FF5D7A" stroke="#1F2346" stroke-width="2"/></svg>',
+  star: function (s, fill) { return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z" fill="' + (fill || '#FFC93C') + '" stroke="#1F2346" stroke-width="1.7" stroke-linejoin="round"/></svg>'; },
+  sun: '<g stroke="#FF9F1C" stroke-width="7" stroke-linecap="round"><line x1="60" y1="18" x2="60" y2="6"/><line x1="89.7" y1="30.3" x2="98.2" y2="21.8"/><line x1="102" y1="60" x2="114" y2="60"/><line x1="89.7" y1="89.7" x2="98.2" y2="98.2"/><line x1="60" y1="102" x2="60" y2="114"/><line x1="30.3" y1="89.7" x2="21.8" y2="98.2"/><line x1="18" y1="60" x2="6" y2="60"/><line x1="30.3" y1="30.3" x2="21.8" y2="21.8"/></g><circle cx="60" cy="60" r="34" fill="#FFC93C" stroke="#1F2346" stroke-width="3.5"/><circle cx="49" cy="56" r="4.5" fill="#1F2346"/><circle cx="71" cy="56" r="4.5" fill="#1F2346"/><circle cx="50.5" cy="54.5" r="1.5" fill="#fff"/><circle cx="72.5" cy="54.5" r="1.5" fill="#fff"/><ellipse cx="41" cy="66" rx="5.5" ry="3.5" fill="#FF8FB1"/><ellipse cx="79" cy="66" rx="5.5" ry="3.5" fill="#FF8FB1"/><path d="M51 67 Q60 77 69 67" fill="none" stroke="#1F2346" stroke-width="3.5" stroke-linecap="round"/>',
+  sprout: '<path d="M60 64 L60 36" stroke="#1F2346" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M60 46 C44 47 32 38 30 22 C46 20 59 30 60 46 Z" fill="#2FB67A" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><path d="M60 40 C75 40 88 30 92 14 C75 13 61 23 60 40 Z" fill="#5FD39B" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><path d="M36 74 L84 74 L78 110 L42 110 Z" fill="#FF8A3D" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><rect x="30" y="62" width="60" height="14" rx="5" fill="#FFA766" stroke="#1F2346" stroke-width="3.5"/><circle cx="52" cy="89" r="3.5" fill="#1F2346"/><circle cx="68" cy="89" r="3.5" fill="#1F2346"/><ellipse cx="46" cy="97" rx="4" ry="2.6" fill="#FF6F91"/><ellipse cx="74" cy="97" rx="4" ry="2.6" fill="#FF6F91"/><path d="M55 96 Q60 101 65 96" fill="none" stroke="#1F2346" stroke-width="3" stroke-linecap="round"/>',
+  magnet: '<g stroke="#1F2346" stroke-width="3" stroke-linecap="round"><line x1="20" y1="9" x2="16" y2="3"/><line x1="34" y1="8" x2="34" y2="1"/><line x1="86" y1="8" x2="86" y2="1"/><line x1="100" y1="9" x2="104" y2="3"/></g><path d="M34 34 L34 64 A26 26 0 0 0 86 64 L86 34" fill="none" stroke="#1F2346" stroke-width="30"/><path d="M34 36 L34 64 A26 26 0 0 0 86 64 L86 36" fill="none" stroke="#FF5D7A" stroke-width="23"/><rect x="20.5" y="16" width="27" height="20" rx="3" fill="#E4E9F2" stroke="#1F2346" stroke-width="3.5"/><rect x="72.5" y="16" width="27" height="20" rx="3" fill="#E4E9F2" stroke="#1F2346" stroke-width="3.5"/><circle cx="51" cy="86" r="4.5" fill="#fff"/><circle cx="69" cy="86" r="4.5" fill="#fff"/><circle cx="51.5" cy="86.5" r="2.3" fill="#1F2346"/><circle cx="69.5" cy="86.5" r="2.3" fill="#1F2346"/><path d="M55 93 Q60 97 65 93" fill="none" stroke="#1F2346" stroke-width="2.6" stroke-linecap="round"/>',
+  flask: '<path d="M49 20 L71 20 L71 46 L94 96 Q98 108 86 108 L34 108 Q22 108 26 96 L49 46 Z" fill="#F7F4FF"/><path d="M37 72 L83 72 L94 96 Q98 108 86 108 L34 108 Q22 108 26 96 Z" fill="#8B5CF6"/><path d="M49 20 L71 20 L71 46 L94 96 Q98 108 86 108 L34 108 Q22 108 26 96 L49 46 Z" fill="none" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><rect x="44" y="12" width="32" height="10" rx="4" fill="#fff" stroke="#1F2346" stroke-width="3.5"/><circle cx="55" cy="60" r="4" fill="#fff" stroke="#1F2346" stroke-width="2.5"/><circle cx="65" cy="48" r="3" fill="#fff" stroke="#1F2346" stroke-width="2.5"/><circle cx="51" cy="87" r="5" fill="#fff"/><circle cx="69" cy="87" r="5" fill="#fff"/><circle cx="52" cy="88" r="2.6" fill="#1F2346"/><circle cx="70" cy="88" r="2.6" fill="#1F2346"/><path d="M55 97 Q60 102 65 97" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>',
+  planet: '<path d="M10 72 Q60 40 110 60" fill="none" stroke="#1F2346" stroke-width="10" stroke-linecap="round"/><path d="M10 72 Q60 40 110 60" fill="none" stroke="#FFC93C" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="60" r="32" fill="#3BA7F5" stroke="#1F2346" stroke-width="3.5"/><circle cx="44" cy="44" r="5" fill="#7CC6FA"/><circle cx="78" cy="44" r="3.5" fill="#7CC6FA"/><circle cx="50" cy="58" r="4.5" fill="#1F2346"/><circle cx="70" cy="58" r="4.5" fill="#1F2346"/><circle cx="51.5" cy="56.5" r="1.5" fill="#fff"/><circle cx="71.5" cy="56.5" r="1.5" fill="#fff"/><ellipse cx="42" cy="67" rx="5" ry="3" fill="#FF8FB1"/><ellipse cx="78" cy="67" rx="5" ry="3" fill="#FF8FB1"/><path d="M53 67 Q60 74 67 67" fill="none" stroke="#1F2346" stroke-width="3.2" stroke-linecap="round"/><path d="M10 72 Q60 100 110 60" fill="none" stroke="#1F2346" stroke-width="10" stroke-linecap="round"/><path d="M10 72 Q60 100 110 60" fill="none" stroke="#FFC93C" stroke-width="4" stroke-linecap="round"/>',
+  rocket: '<g class="flame"><path d="M48 84 Q60 118 72 84 Z" fill="#FF9F1C" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/><path d="M54 84 Q60 102 66 84 Z" fill="#FFE27A"/></g><path d="M42 62 L26 88 L46 86 Z" fill="#FF5D7A" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><path d="M78 62 L94 88 L74 86 Z" fill="#FF5D7A" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><path d="M60 8 C80 24 84 52 78 86 L42 86 C36 52 40 24 60 8 Z" fill="#fff" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><path d="M47 22 C52 16 56 12 60 8 C64 12 68 16 73 22 Z" fill="#FF8A3D" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><circle cx="60" cy="46" r="13" fill="#9ED6FF" stroke="#1F2346" stroke-width="3.5"/><circle cx="55" cy="45" r="2.6" fill="#1F2346"/><circle cx="65" cy="45" r="2.6" fill="#1F2346"/><path d="M56 50 Q60 54 64 50" fill="none" stroke="#1F2346" stroke-width="2.2" stroke-linecap="round"/><path d="M44 72 L76 72" stroke="#1F2346" stroke-width="3"/>',
+  bulb: '<g stroke="#FF9F1C" stroke-width="5" stroke-linecap="round"><line x1="60" y1="4" x2="60" y2="12"/><line x1="22" y1="18" x2="28" y2="24"/><line x1="98" y1="18" x2="92" y2="24"/><line x1="10" y1="50" x2="18" y2="50"/><line x1="110" y1="50" x2="102" y2="50"/></g><path d="M60 20 C40 20 28 35 28 52 C28 66 38 74 44 82 L76 82 C82 74 92 66 92 52 C92 35 80 20 60 20 Z" fill="#FFE27A" stroke="#1F2346" stroke-width="3.5" stroke-linejoin="round"/><rect x="44" y="82" width="32" height="12" rx="3" fill="#C9CCE4" stroke="#1F2346" stroke-width="3.5"/><rect x="48" y="94" width="24" height="12" rx="4" fill="#9CA0C0" stroke="#1F2346" stroke-width="3.5"/><circle cx="50" cy="50" r="4.5" fill="#1F2346"/><circle cx="70" cy="50" r="4.5" fill="#1F2346"/><circle cx="51.5" cy="48.5" r="1.5" fill="#fff"/><circle cx="71.5" cy="48.5" r="1.5" fill="#fff"/><ellipse cx="42" cy="60" rx="5" ry="3" fill="#FF8FB1"/><ellipse cx="78" cy="60" rx="5" ry="3" fill="#FF8FB1"/><path d="M52 61 Q60 69 68 61" fill="none" stroke="#1F2346" stroke-width="3.2" stroke-linecap="round"/>',
+  atom: '<g fill="none" stroke="#1F2346" stroke-width="3.5"><ellipse cx="60" cy="60" rx="52" ry="19"/><ellipse cx="60" cy="60" rx="52" ry="19" transform="rotate(60 60 60)"/><ellipse cx="60" cy="60" rx="52" ry="19" transform="rotate(-60 60 60)"/></g><circle cx="112" cy="60" r="7" fill="#FFC93C" stroke="#1F2346" stroke-width="3"/><circle cx="34" cy="15" r="6" fill="#5FD39B" stroke="#1F2346" stroke-width="3"/><circle cx="34" cy="105" r="6" fill="#3BA7F5" stroke="#1F2346" stroke-width="3"/><circle cx="60" cy="60" r="22" fill="#FF8FA3" stroke="#1F2346" stroke-width="3.5"/><circle cx="52" cy="57" r="3.8" fill="#1F2346"/><circle cx="68" cy="57" r="3.8" fill="#1F2346"/><circle cx="53.3" cy="55.7" r="1.3" fill="#fff"/><circle cx="69.3" cy="55.7" r="1.3" fill="#fff"/><path d="M53 65 Q60 72 67 65" fill="none" stroke="#1F2346" stroke-width="3" stroke-linecap="round"/>',
+  hero: '<svg width="300" height="300" viewBox="0 0 320 320" role="img" aria-label="น้องอะตอม มาสคอตนักวิทยาศาสตร์"><g class="spin-slow"><ellipse cx="160" cy="170" rx="150" ry="46" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="3 11" stroke-linecap="round" transform="rotate(25 160 170)"/><ellipse cx="160" cy="170" rx="150" ry="46" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="3 11" stroke-linecap="round" transform="rotate(-25 160 170)"/><circle cx="24" cy="107" r="11" fill="#FFC93C" stroke="#1F2346" stroke-width="3.5"/><circle cx="24" cy="233" r="9" fill="#FF6FA3" stroke="#1F2346" stroke-width="3.5"/><circle cx="296" cy="107" r="8" fill="#5FD39B" stroke="#1F2346" stroke-width="3.5"/></g><path d="M160 86 L160 52" stroke="#1F2346" stroke-width="5" stroke-linecap="round"/><circle class="twinkle" cx="160" cy="44" r="13" fill="#FF6FA3" stroke="#1F2346" stroke-width="4"/><path d="M234 190 Q266 204 262 236" fill="none" stroke="#1F2346" stroke-width="18" stroke-linecap="round"/><path d="M234 190 Q266 204 262 236" fill="none" stroke="#7FA6FF" stroke-width="10" stroke-linecap="round"/><ellipse cx="130" cy="258" rx="26" ry="14" fill="#1F2346"/><ellipse cx="190" cy="258" rx="26" ry="14" fill="#1F2346"/><circle cx="160" cy="170" r="88" fill="#7FA6FF" stroke="#1F2346" stroke-width="4.5"/><ellipse cx="160" cy="214" rx="50" ry="30" fill="#A9C3FF"/><path d="M104 118 Q124 96 150 92" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".7"/><ellipse cx="130" cy="160" rx="21" ry="25" fill="#fff" stroke="#1F2346" stroke-width="4"/><ellipse cx="190" cy="160" rx="21" ry="25" fill="#fff" stroke="#1F2346" stroke-width="4"/><circle cx="134" cy="166" r="11" fill="#1F2346"/><circle cx="194" cy="166" r="11" fill="#1F2346"/><circle cx="138" cy="161" r="4" fill="#fff"/><circle cx="198" cy="161" r="4" fill="#fff"/><ellipse cx="110" cy="196" rx="12" ry="7" fill="#FF8FB1"/><ellipse cx="210" cy="196" rx="12" ry="7" fill="#FF8FB1"/><path d="M136 196 Q160 228 184 196 Z" fill="#1F2346" stroke="#1F2346" stroke-width="4" stroke-linejoin="round"/><path d="M148 210 Q160 204 172 210 Q166 218 160 218 Q154 218 148 210 Z" fill="#FF6FA3"/><g class="wave"><path d="M88 178 Q56 150 54 112" fill="none" stroke="#1F2346" stroke-width="18" stroke-linecap="round"/><path d="M88 178 Q56 150 54 112" fill="none" stroke="#7FA6FF" stroke-width="10" stroke-linecap="round"/><circle cx="54" cy="104" r="15" fill="#FFC93C" stroke="#1F2346" stroke-width="4"/></g></svg>',
+  trophy: '<svg width="170" height="190" viewBox="0 0 160 180" role="img" aria-label="ถ้วยรางวัล"><path class="twinkle" d="M20 20 C21 26 23 28 29 29 C23 30 21 32 20 38 C19 32 17 30 11 29 C17 28 19 26 20 20 Z" fill="#FF8A3D"/><path class="twinkle" d="M142 10 C143 16 145 18 151 19 C145 20 143 22 142 28 C141 22 139 20 133 19 C139 18 141 16 142 10 Z" fill="#8B5CF6"/><path d="M40 36 H24 C16 36 14 64 42 72" fill="none" stroke="#1F2346" stroke-width="5" stroke-linecap="round"/><path d="M120 36 H136 C144 36 146 64 118 72" fill="none" stroke="#1F2346" stroke-width="5" stroke-linecap="round"/><rect x="70" y="104" width="20" height="28" fill="#FFB020" stroke="#1F2346" stroke-width="4"/><rect x="46" y="130" width="68" height="24" rx="7" fill="#8B5CF6" stroke="#1F2346" stroke-width="4"/><path d="M40 24 H120 V60 C120 90 102 108 80 108 C58 108 40 90 40 60 Z" fill="#FFC93C" stroke="#1F2346" stroke-width="4" stroke-linejoin="round"/><path d="M52 34 V58" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/><path d="M60 60 Q66 52 72 60" fill="none" stroke="#1F2346" stroke-width="4" stroke-linecap="round"/><path d="M88 60 Q94 52 100 60" fill="none" stroke="#1F2346" stroke-width="4" stroke-linecap="round"/><ellipse cx="56" cy="72" rx="6" ry="3.5" fill="#FF8FB1"/><ellipse cx="104" cy="72" rx="6" ry="3.5" fill="#FF8FB1"/><path d="M68 72 Q80 88 92 72 Z" fill="#1F2346" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/></svg>',
+  file: function (label, color, w) { return '<svg class="ficon" width="' + w + '" height="' + Math.round(w * 1.2) + '" viewBox="0 0 80 96" aria-hidden="true"><path d="M10 6 H50 L70 26 V86 Q70 90 66 90 H14 Q10 90 10 86 Z" fill="#fff" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/><path d="M50 6 V26 H70 Z" fill="#E9E3D6" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/><circle cx="31" cy="36" r="3" fill="#1F2346"/><circle cx="47" cy="36" r="3" fill="#1F2346"/><path d="M34 43 Q39 47 44 43" fill="none" stroke="#1F2346" stroke-width="2.6" stroke-linecap="round"/><rect x="4" y="54" width="56" height="22" rx="6" fill="' + color + '" stroke="#1F2346" stroke-width="3"/><text x="32" y="70" text-anchor="middle" font-family="Mitr, sans-serif" font-size="12" font-weight="700" fill="#1F2346">' + label + '</text></svg>'; },
+  magnifier: '<svg class="scan" width="110" height="110" viewBox="0 0 100 100" aria-hidden="true"><path d="M66 66 L90 90" stroke="#1F2346" stroke-width="13" stroke-linecap="round"/><path d="M66 66 L90 90" stroke="#FF8A3D" stroke-width="7" stroke-linecap="round"/><circle cx="44" cy="44" r="28" fill="#DCEFFF" fill-opacity=".85" stroke="#1F2346" stroke-width="5"/><circle cx="36" cy="42" r="4" fill="#1F2346"/><circle cx="52" cy="42" r="4" fill="#1F2346"/><path d="M38 52 Q44 57 50 52" fill="none" stroke="#1F2346" stroke-width="3" stroke-linecap="round"/></svg>',
+  icon: function (name, size, cls) { return '<svg class="' + (cls || '') + '" width="' + size + '" height="' + size + '" viewBox="0 0 120 120" aria-hidden="true">' + SVG[name] + '</svg>'; },
+  paperclip: '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5l-7.8 7.8a5 5 0 0 1-7.1-7.1l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  back: '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  next: '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  edit: '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16zM14 6l4 4" fill="none" stroke="#1F2346" stroke-width="2.2" stroke-linejoin="round"/></svg>',
+  trash: '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="#1F2346" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+  check: '<svg width="30" height="30" viewBox="0 0 24 24" role="img" aria-label="ถูก"><circle cx="12" cy="12" r="11" fill="#2FB67A" stroke="#1F2346" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  cross: '<svg width="30" height="30" viewBox="0 0 24 24" role="img" aria-label="ผิด"><circle cx="12" cy="12" r="11" fill="#E8435F" stroke="#1F2346" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>',
+  bolt: '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="#FF5D7A" stroke="#1F2346" stroke-width="2" stroke-linejoin="round"/></svg>'
+};
+var GICON = ['', 'sun', 'rocket', 'atom'];
+var SICON = { process: 'bulb', life: 'sprout', matter: 'flask', energy: 'magnet', astro: 'planet' };
+
+/* ================= การเชื่อมต่อ Google Apps Script ================= */
+/* ▼▼▼ ถ้าฝากหน้าเว็บไว้ที่ GitHub Pages ให้วางลิงก์เว็บแอป (ลงท้ายด้วย /exec) ระหว่างเครื่องหมาย ' ' ด้านล่าง ▼▼▼ */
+var API_URL = 'วางลิงก์เว็บแอปที่นี่';
+/* ▲▲▲ ▲▲▲ */
+var USE_API = /^https?:\/\/.+\/exec$/.test(API_URL.trim());
+var GAS = !USE_API && typeof google !== 'undefined' && google.script && google.script.run;
+
+function api(fn) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  if (USE_API) {
+    return fetch(API_URL.trim(), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ fn: fn, args: args }), redirect: 'follow' })
+      .catch(function () { throw new Error('เชื่อมต่อระบบไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่'); })
+      .then(function (r) { return r.json().catch(function () { throw new Error('ระบบหลังบ้านตอบกลับไม่ถูกต้อง ตรวจสอบลิงก์ API_URL และการตั้งค่า "ผู้มีสิทธิ์เข้าถึง: ทุกคน"'); }); })
+      .then(function (j) { if (!j.ok) throw new Error(j.error || 'เกิดข้อผิดพลาด'); return j.data; });
+  }
+  if (GAS) {
+    return new Promise(function (res, rej) {
+      var r = google.script.run.withSuccessHandler(res).withFailureHandler(function (e) { rej(new Error(e && e.message ? e.message : String(e))); });
+      r[fn].apply(r, args);
+    });
+  }
+  return new Promise(function (res, rej) {
+    setTimeout(function () {
+      try { res(JSON.parse(JSON.stringify(Mock[fn].apply(null, args)))); } catch (e) { rej(e); }
+    }, 300);
+  });
+}
+
+/* โหมดทดลอง: จำลองระบบหลังบ้านในเบราว์เซอร์ (ข้อมูลหายเมื่อรีเฟรช) */
+var Mock = (function () {
+  var pw = '1234';
+  var bank = SEED.map(function (x, i) { return { id: i + 1, g: x[0], s: x[1], q: x[2], o: x[3].slice(), a: x[4], ex: x[5], src: 'ชุดเริ่มต้น' }; });
+  var results = [];
+  var nextId = bank.length + 1;
+  function chk(p) { if (p !== pw) throw new Error('รหัสผ่านไม่ถูกต้อง กรุณาเข้าสู่ระบบครูอีกครั้ง'); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function now() { var d = new Date(); return d.toLocaleDateString('th-TH') + ' ' + d.toTimeString().slice(0, 5); }
+  return {
+    getSummary: function () { var by = [0, 0, 0, 0]; bank.forEach(function (x) { by[x.g]++; }); return { total: bank.length, byGrade: by, tambons: TAMBONS, passPct: PASS_PCT, cert: CERT }; },
+    getQuiz: function (g, s, n) { return shuffle(bank.filter(function (x) { return (!g || x.g === g) && (s === 'all' || x.s === s); })).slice(0, n); },
+    submitResult: function (p) {
+      var score = 0, detail = [];
+      p.answers.forEach(function (a) { var q = bank.filter(function (x) { return x.id === a.id; })[0]; if (!q) return; var ok = q.a === a.pick; if (ok) score++; detail.push({ id: q.id, pick: a.pick, ok: ok }); });
+      var pct = Math.round(score / detail.length * 100);
+      var quiz = p.quizGrade ? lvShort(p.quizGrade) : 'โหมดท้าทาย', strand = p.strand === 'all' ? 'ทุกหัวข้อ' : STR[p.strand].label;
+      var certNo = pct >= PASS_PCT ? 'สกร.นภ-2569-' + ('0000' + (results.filter(function (r) { return r.certNo; }).length + 1)).slice(-4) : '';
+      var certDate = thaiDateJs(new Date());
+      results.push({ time: Date.now(), timeText: now(), name: p.name, grade: Number(p.grade), room: String(p.room), certNo: certNo, certDate: certDate, quiz: quiz, strand: strand, score: score, total: detail.length, pct: pct, detail: detail });
+      return { score: score, total: detail.length, pct: pct, certNo: certNo, certDate: certDate, quiz: quiz, strand: strand };
+    },
+    getMyResults: function (name, g, room) { return results.filter(function (r) { return r.name === name && r.grade === Number(g) && r.room === String(room); }).slice(-30).reverse().map(function (r) { return { time: r.timeText, quiz: r.quiz, strand: r.strand, score: r.score, total: r.total, pct: r.pct, certNo: r.certNo, certDate: r.certDate }; }); },
+    teacherLogin: function (p) { return { ok: p === pw }; },
+    tListQuestions: function (p) { chk(p); return bank; },
+    tSaveQuestion: function (p, q) {
+      chk(p);
+      if (q.id) { bank = bank.map(function (x) { return x.id === q.id ? Object.assign({}, q) : x; }); return { id: q.id }; }
+      var v = Object.assign({}, q, { id: nextId++, src: 'ครูเพิ่มเอง' }); bank.push(v); return { id: v.id };
+    },
+    tDeleteQuestion: function (p, id) { chk(p); bank = bank.filter(function (x) { return x.id !== id; }); return { ok: true }; },
+    tImportQuestions: function (p, list, src) { chk(p); list.forEach(function (q) { bank.push(Object.assign({}, q, { id: nextId++, src: 'ไฟล์: ' + src })); }); return { count: list.length }; },
+    tExtractText: function () { throw new Error('โหมดทดลอง: การอ่าน PDF และรูปภาพจะใช้งานได้เมื่อติดตั้งบน Google Apps Script แล้ว (ไฟล์ Word และ .txt ใช้ได้ทันที)'); },
+    tReport: function (p, f) { chk(p); return buildReport(results.filter(function (r) { return (!f.grade || r.grade === f.grade) && (!f.room || r.room === f.room); }), bank, results); },
+    tChangePassword: function (p, n) { chk(p); if (String(n).length < 4) throw new Error('รหัสผ่านใหม่ต้องยาวอย่างน้อย 4 ตัวอักษร'); pw = String(n); return { ok: true }; },
+    tSheetUrl: function (p) { chk(p); return ''; },
+    getSignature: function () { return ''; }
+  };
+})();
+
+function buildReport(rs, bankArr, all) {
+  var bank = {}; bankArr.forEach(function (x) { bank[x.id] = x; });
+  var st = {}, dist = [0, 0, 0, 0, 0], items = {}, sum = 0, best = 0;
+  rs.forEach(function (r) {
+    sum += r.pct; best = Math.max(best, r.pct);
+    dist[r.pct < 50 ? 0 : r.pct < 60 ? 1 : r.pct < 70 ? 2 : r.pct < 80 ? 3 : 4]++;
+    var k = [r.name, r.grade, r.room].join('|');
+    var s = st[k] || (st[k] = { name: r.name, grade: r.grade, room: r.room, certs: 0, attempts: 0, best: 0, sum: 0, last: '' });
+    s.attempts++; s.sum += r.pct; s.best = Math.max(s.best, r.pct); s.last = r.timeText; if (r.certNo) s.certs++;
+    r.detail.forEach(function (d) { var it = items[d.id] || (items[d.id] = { id: d.id, n: 0, correct: 0, picks: [0, 0, 0, 0] }); it.n++; if (d.ok) it.correct++; if (d.pick >= 0) it.picks[d.pick]++; });
+  });
+  var perStudent = Object.keys(st).map(function (k) { var s = st[k]; return { name: s.name, grade: s.grade, room: s.room, certs: s.certs, attempts: s.attempts, best: s.best, avg: Math.round(s.sum / s.attempts), last: s.last }; });
+  var perQuestion = Object.keys(items).map(function (k) { var it = items[k], q = bank[it.id]; return { id: it.id, q: q ? q.q : '(ข้อสอบถูกลบแล้ว)', g: q ? q.g : '', s: q ? q.s : '', a: q ? q.a : -1, o: q ? q.o : [], n: it.n, correct: it.correct, p: Math.round(it.correct / it.n * 100) / 100, picks: it.picks }; }).sort(function (a, b) { return a.p - b.p; });
+  var rooms = {}; TAMBONS.forEach(function (t) { rooms[t] = 1; });
+  return { summary: { certs: rs.filter(function (r) { return !!r.certNo; }).length, attempts: rs.length, students: perStudent.length, avg: rs.length ? Math.round(sum / rs.length) : 0, best: best }, dist: dist, perStudent: perStudent, perQuestion: perQuestion,
+    recent: rs.slice(-30).reverse().map(function (r) { return { time: r.timeText, name: r.name, grade: r.grade, room: r.room, certNo: r.certNo, quiz: r.quiz, strand: r.strand, score: r.score, total: r.total, pct: r.pct }; }), rooms: Object.keys(rooms) };
+}
+
+/* ================= สถานะของหน้า ================= */
+var S = {
+  view: 'welcome', student: null, summary: null, strand: 'all', count: 10, stars: 0,
+  quiz: null, history: null,
+  tpw: null, tab: 'bank', bank: null, bf: { g: 0, s: 'all', q: '' }, edit: null, imp: null,
+  report: null, rf: { grade: 0, room: '' }, busy: ''
+};
+
+function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+function sstore(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); if (v === null) sessionStorage.removeItem(k); else sessionStorage.setItem(k, v); } catch (e) { return null; } }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function toast(msg, err) {
+  var el = document.createElement('div'); el.className = 'toast' + (err ? ' err' : ''); el.textContent = msg;
+  document.getElementById('toast').appendChild(el); setTimeout(function () { el.remove(); }, err ? 5200 : 3200);
+}
+function busy(text) { S.busy = text || ''; var el = document.getElementById('busy'); if (el) el.remove(); if (text) { var d = document.createElement('div'); d.id = 'busy'; d.className = 'busy'; d.innerHTML = '<div class="box"><div class="spinner"></div>' + esc(text) + '</div>'; document.body.appendChild(d); } }
+function starKey() { var s = S.student; return s ? 'wsn_stars_' + [s.name, s.grade, s.room].join('|') : ''; }
+
+/* ================= ส่วนหัว ================= */
+function nav() {
+  var right = '';
+  if (S.view === 'teacher') {
+    right = '<button class="navlink" data-act="goStudent">หน้าผู้เรียน</button><button class="btn sm" data-act="logoutTeacher">ออกจากระบบครู</button>';
+  } else {
+    if (S.student) right += '<span class="pill">' + SVG.star(26) + esc(S.stars) + ' ดาว</span>';
+    right += '<button class="navlink" data-act="goTeacher">สำหรับคุณครู</button>';
+  }
+  return '<header class="nav"><button class="logo" data-act="goHome" aria-label="กลับหน้าแรก"><span class="logo-badge">' + SVG.logo + '</span><span><b>วิทย์สนุก</b><small>คลังข้อสอบวิทยาศาสตร์ การศึกษานอกระบบ</small></span></button><nav class="nav-r" aria-label="เมนูหลัก">' + right + '</nav></header>' +
+    (GAS || USE_API ? '' : '<div class="devnote">โหมดทดลอง: ยังไม่ได้เชื่อมกับ Google Sheet ข้อมูลที่บันทึกจะหายเมื่อรีเฟรชหน้า (รหัสครูทดลอง 1234)</div>');
+}
+
+var CLOUDS = '<svg class="cloud" style="left:-20px" width="520" height="120" viewBox="0 0 520 120" aria-hidden="true"><path d="M0 120 L0 70 C30 40 70 40 90 62 C110 22 170 20 190 58 C220 30 270 34 280 70 C310 44 360 50 370 80 C400 60 450 64 470 90 C490 80 510 86 520 96 L520 120 Z" fill="#fff"/></svg><svg class="cloud" style="right:-40px" width="640" height="140" viewBox="0 0 640 140" aria-hidden="true"><path d="M0 140 L0 96 C40 60 90 62 110 90 C140 40 220 40 240 86 C270 56 330 58 350 92 C390 50 460 52 480 94 C520 70 590 74 640 100 L640 140 Z" fill="#fff"/></svg>';
+
+function heroArt(msg) {
+  return '<div class="hero-art"><div class="bubble pop">' + esc(msg) + '</div><div class="mini1 float2">' + SVG.icon('sprout', 80) + '</div><div class="mini2 float2">' + SVG.icon('planet', 88) + '</div><div class="mascot float">' + SVG.hero + '</div></div>';
+}
+
+/* ================= หน้าต้อนรับ + ลงชื่อ ================= */
+function viewWelcome() {
+  var s = store('wsn_student') || {};
+  var gOpts = lvOptions(s.grade);
+  return '<section class="hero">' + CLOUDS +
+    '<div style="position:relative;z-index:2"><span class="badge">หลักสูตรการศึกษานอกระบบระดับการศึกษาขั้นพื้นฐาน</span>' +
+    '<h1>ฝึกทำข้อสอบวิทย์<br><span>สนุกเหมือนเล่นเกม!</span></h1>' +
+    '<p>รายวิชาวิทยาศาสตร์ ระดับประถมศึกษา ม.ต้น และ ม.ปลาย ตอบคำถามทีละข้อ รู้ผลทันที พร้อมคำอธิบายเฉลยทุกข้อ คะแนนส่งถึงครูอัตโนมัติ</p>' +
+    '<form class="card login" data-form="studentLogin" autocomplete="on">' +
+    '<h2>ลงชื่อก่อนเริ่มทำข้อสอบ</h2>' +
+    '<label class="f">ชื่อ-นามสกุล<input class="inp" name="name" required maxlength="80" value="' + esc(s.name || '') + '" placeholder="เช่น นางสาวใจดี รักเรียน"></label>' +
+    '<label class="f">ระดับชั้น<select class="inp" name="grade">' + gOpts + '</select></label>' +
+    '<label class="f">ศกร.ระดับตำบล<select class="inp" name="room" required><option value="">— เลือก ศกร.ระดับตำบล —</option>' + tambonList().map(function (t) { return '<option' + (s.room === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('') + '</select></label>' +
+    '<button class="btn yellow big" type="submit">เริ่มฝึกทำข้อสอบ ' + SVG.next + '</button></form></div>' +
+    heroArt('สวัสดี! มาฝึกวิทย์ไปด้วยกัน') + '</section>' + strandsRow();
+}
+
+function strandsRow() {
+  return '<section class="strands" aria-label="หัวข้อการเรียนรู้">' + SK.map(function (k) {
+    return '<div class="strand"><div class="ic" style="background:' + STR[k].tint + '">' + SVG.icon(SICON[k], 44) + '</div><div><div class="disp" style="font-size:17px;font-weight:600;line-height:1.35">' + STR[k].label + '</div><div class="muted" style="font-size:13px">' + STR[k].desc + '</div></div></div>';
+  }).join('') + '</section>';
+}
+
+/* ================= หน้าหลักนักเรียน ================= */
+function viewHome() {
+  var st = S.student, by = S.summary ? S.summary.byGrade : [0, 0, 0, 0];
+  var first = st.name.replace(/^(นางสาว|นาง|นาย|น\.ส\.|เด็กหญิง|เด็กชาย|ด\.ญ\.|ด\.ช\.)\s*/, '').split(/\s+/)[0];
+  var sChips = [['all', 'ทุกหัวข้อ']].concat(SK.map(function (k) { return [k, STR[k].short]; })).map(function (x) {
+    return '<button class="chip' + (S.strand === x[0] ? ' on' : '') + '" data-act="setStrand" data-v="' + x[0] + '" aria-pressed="' + (S.strand === x[0]) + '">' + x[1] + '</button>';
+  }).join('');
+  var nChips = [5, 10, 20].map(function (n) { return '<button class="chip' + (S.count === n ? ' on' : '') + '" data-act="setCount" data-v="' + n + '" aria-pressed="' + (S.count === n) + '">' + n + ' ข้อ</button>'; }).join('');
+  var cards = [1, 2, 3].map(function (g) {
+    var n = by[g] || 0, mine = Number(st.grade) === g;
+    return '<button class="gcard" style="background:' + GTINT[g] + '" data-act="start" data-g="' + g + '"' + (n ? '' : ' disabled') + ' aria-label="เริ่มทำข้อสอบ' + LV[g].label + '">' +
+      (mine ? '<span class="mine">ระดับของฉัน</span>' : '') + '<span class="wig">' + SVG.icon(GICON[g], 110) + '</span>' +
+      '<span class="gnum">' + LV[g].short + '</span><span class="gcode">' + LV[g].code + ' วิทยาศาสตร์</span><span class="gsub">มีข้อสอบ ' + n + ' ข้อ</span>' +
+      '<span class="go" style="background:' + GCOL[g] + '">' + (n ? 'เริ่มเลย →' : 'ยังไม่มีข้อสอบ') + '</span></button>';
+  }).join('');
+  return '<section class="hero small">' + CLOUDS + '<div style="position:relative;z-index:2"><span class="badge">' + esc(lvShort(st.grade)) + ' · ' + esc(st.room) + '</span>' +
+    '<h1>สวัสดี <span>' + esc(first) + '</span>!<br>วันนี้ฝึกวิทย์เรื่องไหนดี?</h1>' +
+    '<div class="row" style="margin-top:20px"><button class="btn yellow" data-act="start" data-g="0">' + SVG.bolt + 'โหมดท้าทาย รวมทุกระดับ</button>' +
+    '<button class="btn" data-act="history">ประวัติของฉัน</button><button class="btn" data-act="changeStudent">เปลี่ยนผู้ใช้</button></div></div>' +
+    heroArt('เลือกระดับด้านล่างได้เลย!') + '</section>' +
+    '<div class="sec-head"><h2>เลือกระดับการศึกษา</h2><div class="row">' + sChips + '<span style="width:8px"></span>' + nChips + '</div></div>' +
+    '<div class="grades">' + cards + '</div>' + strandsRow();
+}
+
+/* ================= ทำข้อสอบ ================= */
+function viewQuiz() {
+  var z = S.quiz, q = z.qs[z.idx], answered = z.picked !== -1, ok = answered && z.picked === q.a, total = z.qs.length;
+  var pct = Math.round((z.idx + (answered ? 1 : 0)) / total * 100);
+  var opts = q.o.map(function (t, i) {
+    var cls = '';
+    if (answered) cls = i === q.a ? ' right' : i === z.picked ? ' wrong' : ' dim';
+    return '<button class="opt' + cls + '" data-act="pick" data-i="' + i + '"' + (answered ? ' disabled' : '') + '><span class="l">' + LET[i] + '</span><span class="t">' + esc(t) + '</span>' +
+      (answered && i === q.a ? SVG.check : answered && i === z.picked ? SVG.cross : '') + '</button>';
+  }).join('');
+  var fb = answered ? '<div class="fb pop" style="background:' + (ok ? '#C8F2DA' : '#FFE3C2') + '"><div class="txt"><span class="ttl">' +
+    (ok ? 'เก่งมาก! ตอบถูกต้อง' : 'เกือบแล้ว! คำตอบที่ถูกคือ ' + LET[q.a] + '. ' + esc(q.o[q.a])) + '</span><span style="font-size:17px;line-height:1.6">' + esc(q.ex) + '</span></div>' +
+    '<button class="btn dark" data-act="next" id="nextBtn">' + (z.idx + 1 < total ? 'ข้อต่อไป' : 'ดูผลคะแนน') + SVG.next + '</button></div>' : '';
+  var say = !answered ? 'อ่านโจทย์ช้า ๆ แล้วเลือกคำตอบที่ถูกที่สุดนะ!' : ok ? 'ถูกต้อง! รับไปเลย 1 ดาว' : 'ไม่เป็นไรนะ อ่านคำอธิบายแล้วไปต่อกัน!';
+  var score = z.results.filter(function (r) { return r.ok; }).length;
+  var dots = z.qs.map(function (x, i) { var r = z.results[i]; return '<span class="dot' + (r ? (r.ok ? ' ok' : ' no') : i === z.idx ? ' cur' : '') + '">' + (i + 1) + '</span>'; }).join('');
+  var label = z.grade ? LV[z.grade].label : 'โหมดท้าทาย รวมทุกระดับ';
+  return '<div class="qtop"><button class="btn sm" data-act="quitQuiz">' + SVG.back + 'ออก</button>' +
+    '<span class="tag disp" style="background:' + GCOL[z.grade] + ';font-size:17px;padding:6px 16px;border-width:3px">' + label + '</span>' +
+    '<div class="prog" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="ความคืบหน้า"><div style="width:' + pct + '%"></div></div>' +
+    '<span class="disp" style="font-size:20px;font-weight:600">ข้อ ' + (z.idx + 1) + ' / ' + total + '</span></div>' +
+    '<div class="qgrid"><div class="qcard pop"><div class="row"><span class="tag" style="background:' + STR[q.s].tint + '">' + STR[q.s].label + '</span><span class="tag" style="background:var(--cream)">' + lvShort(q.g) + '</span></div>' +
+    '<h2>' + esc(q.q) + '</h2><div class="opts">' + opts + '</div>' + fb + '</div>' +
+    '<aside class="side"><div class="helper" style="background:' + STR[q.s].tint + '"><div class="say">' + say + '</div><div class="bounce">' + SVG.icon(SICON[q.s], 150) + '</div></div>' +
+    '<div class="soft"><div class="row" style="justify-content:space-between;margin-bottom:12px"><span class="disp" style="font-size:19px;font-weight:600">ดาวในรอบนี้</span><span class="row" style="gap:6px">' + SVG.star(26) + '<b class="disp" style="font-size:24px">' + score + '</b></span></div><div class="dots">' + dots + '</div></div></aside></div>';
+}
+
+function viewResult() {
+  var z = S.quiz, total = z.qs.length, score = z.results.filter(function (r) { return r.ok; }).length, pct = score / total;
+  var n = pct === 1 ? 3 : pct >= 0.6 ? 2 : pct > 0 ? 1 : 0;
+  var title = ['ลองใหม่อีกครั้งนะ!', 'พยายามได้ดี!', 'เก่งมากเลย!', 'สุดยอดนักวิทย์!'][n];
+  var msg = ['ไม่เป็นไรเลย อ่านทบทวนคำตอบ แล้วลองใหม่อีกรอบนะ', 'เริ่มต้นได้ดีแล้ว อ่านคำอธิบายแล้วทำอีกครั้ง ต้องได้ดาวเพิ่มแน่นอน', 'เกือบเต็มแล้ว! ทบทวนข้อที่พลาดอีกนิดเดียว', 'ตอบถูกทุกข้อ! ลองโหมดท้าทายหรือหัวข้ออื่นต่อได้เลย'][n];
+  var save = z.saved === 'ok' ? '<span class="save" style="background:#C8F2DA">' + SVG.check + 'ส่งคะแนนถึงคุณครูแล้ว</span>' :
+    z.saved === 'err' ? '<span class="save" style="background:#FFE3C2">ส่งคะแนนไม่สำเร็จ <button class="btn sm" data-act="resave">ลองอีกครั้ง</button></span>' :
+    '<span class="save"><span class="spinner" style="width:20px;height:20px;border-width:3px"></span>กำลังส่งคะแนน...</span>';
+  var review = z.results.map(function (r, i) {
+    var q = z.qs[i];
+    return '<div class="review" style="background:' + (r.ok ? '#EFFBF4' : '#FFF1F3') + '"><span class="rnum" style="background:' + (r.ok ? 'var(--green)' : 'var(--pink)') + '">' + (i + 1) + '</span><div style="display:flex;flex-direction:column;gap:4px"><b style="font-size:17px;line-height:1.5">' + esc(q.q) + '</b>' +
+      (r.ok ? '' : '<span class="muted">คุณตอบ: ' + LET[r.pick] + '. ' + esc(q.o[r.pick]) + '</span>') +
+      '<span style="font-weight:600;color:#1D7A4E">คำตอบที่ถูก: ' + LET[q.a] + '. ' + esc(q.o[q.a]) + '</span><span class="muted" style="font-size:15px">' + esc(q.ex) + '</span></div></div>';
+  }).join('');
+  var conf = '';
+  if (n >= 2) {
+    var cols = ['#FFC93C', '#FF5D7A', '#2FB67A', '#3BA7F5', '#8B5CF6', '#FF8A3D'];
+    for (var k = 0; k < 30; k++) { var w = 10 + (k % 3) * 4; conf += '<span class="confetti" style="left:' + ((k * 37 + 11) % 100) + '%;width:' + w + 'px;height:' + (w + 8) + 'px;background:' + cols[k % 6] + ';border-radius:' + (k % 2 ? '50%' : '4px') + ';animation-duration:' + (2.6 + (k % 5) * .6) + 's;animation-delay:' + ((k * .17) % 1.5).toFixed(2) + 's"></span>'; }
+    conf = '<div class="confetti-layer" aria-hidden="true">' + conf + '</div>';
+  }
+  return conf + '<div class="card pop result"><div class="rleft"><div class="bounce">' + SVG.trophy + '</div><h2 style="font-size:34px">' + title + '</h2>' +
+    '<div class="row" style="justify-content:center">' + SVG.star(52, n >= 1 ? '#FFC93C' : '#EFE7D6') + SVG.star(64, n >= 2 ? '#FFC93C' : '#EFE7D6') + SVG.star(52, n >= 3 ? '#FFC93C' : '#EFE7D6') + '</div>' +
+    '<div><span class="disp" style="font-size:64px;font-weight:700;line-height:1">' + score + '</span><span class="disp" style="font-size:26px"> / ' + total + ' ข้อ</span></div>' +
+    '<p style="margin:0;font-weight:500;line-height:1.6">' + msg + '</p>' + save +
+    (z.res && z.res.certNo ? '<button class="btn green big pop" data-act="certFromResult">' + SVG.star(28) + 'รับเกียรติบัตร</button>' : (z.saved === 'ok' && pct * 100 < PASS_PCT ? '<span class="muted" style="font-size:14px">ได้ร้อยละ ' + PASS_PCT + ' ขึ้นไป รับเกียรติบัตรทันที</span>' : '')) +
+    '<div class="row" style="justify-content:center"><button class="btn yellow" data-act="retry">ทำอีกครั้ง</button><button class="btn" data-act="goHome">เลือกระดับอื่น</button></div></div>' +
+    '<div style="display:flex;flex-direction:column;gap:14px"><h3 style="font-size:26px">ทบทวนคำตอบ</h3>' + review + '</div></div>';
+}
+
+function viewHistory() {
+  var h = S.history;
+  var body = !h ? '<div class="empty">กำลังโหลด...</div>' : !h.length ? '<div class="empty">ยังไม่มีประวัติการทำข้อสอบ ลองทำสักชุดสิ!</div>' :
+    '<div class="tbl"><table class="t"><thead><tr><th>วันเวลา</th><th>ชุดข้อสอบ</th><th>หัวข้อ</th><th>คะแนน</th><th>ร้อยละ</th><th>เกียรติบัตร</th></tr></thead><tbody>' +
+    h.map(function (r, i) { return '<tr><td>' + esc(r.time) + '</td><td>' + esc(r.quiz) + '</td><td>' + esc(r.strand) + '</td><td class="n">' + r.score + '/' + r.total + '</td><td class="n"><b>' + r.pct + '%</b></td><td>' + (r.certNo ? '<button class="btn sm green" data-act="certFromHistory" data-i="' + i + '">ดูเกียรติบัตร</button>' : '<span class="muted">—</span>') + '</td></tr>'; }).join('') + '</tbody></table></div>';
+  return '<div class="row" style="margin-bottom:18px"><button class="btn sm" data-act="goHome">' + SVG.back + 'กลับ</button><h2 style="font-size:30px">ประวัติของฉัน</h2></div>' + body;
+}
+
+/* ================= ครู: เข้าสู่ระบบ ================= */
+function viewTLogin() {
+  return '<div style="max-width:460px;margin:30px auto"><form class="card login pop" data-form="teacherLogin" style="align-items:stretch;text-align:center">' +
+    '<div style="display:flex;justify-content:center" class="float">' + SVG.icon('flask', 110) + '</div>' +
+    '<h2>สำหรับคุณครู</h2><p class="muted" style="margin:0">กรอกรหัสผ่านเพื่อจัดการคลังข้อสอบและดูรายงานผล</p>' +
+    '<label class="f" style="text-align:left">รหัสผ่าน<input class="inp" type="password" name="pw" required autocomplete="current-password" inputmode="numeric" autofocus></label>' +
+    '<button class="btn dark big" type="submit">เข้าสู่ระบบ</button>' +
+    '<button class="btn" type="button" data-act="goHome">กลับหน้าผู้เรียน</button></form></div>';
+}
+
+/* ================= ครู: แดชบอร์ด ================= */
+function viewTeacher() {
+  var tabs = [['bank', 'คลังข้อสอบ'], ['import', 'แนบไฟล์ข้อสอบ'], ['report', 'รายงานผลผู้เรียน'], ['settings', 'ตั้งค่า']].map(function (t) {
+    return '<button class="tab' + (S.tab === t[0] ? ' on' : '') + '" data-act="tab" data-v="' + t[0] + '" aria-pressed="' + (S.tab === t[0]) + '">' + (t[0] === 'import' ? SVG.paperclip : '') + t[1] + '</button>';
+  }).join('');
+  var body = S.tab === 'bank' ? tabBank() : S.tab === 'import' ? tabImport() : S.tab === 'report' ? tabReport() : tabSettings();
+  return '<div class="row" style="justify-content:space-between;margin-bottom:16px"><h1 style="font-size:34px">ห้องพักครู</h1></div><div class="tabs" role="toolbar" aria-label="เมนูครู">' + tabs + '</div>' + body;
+}
+
+function tabBank() {
+  if (!S.bank) return '<div class="empty">กำลังโหลดคลังข้อสอบ...</div>';
+  var b = S.bank, cnt = function (k) { return b.filter(function (x) { return x.s === k; }).length; };
+  var stats = '<div class="grid-stats" style="margin-bottom:20px">' +
+    '<div class="stat" style="background:#FFF1C7">' + SVG.star(46) + '<div><b>' + b.length + '</b><span>ข้อสอบทั้งหมด</span></div></div>' +
+    SK.map(function (k) { return '<div class="stat" style="background:' + STR[k].tint + '">' + SVG.icon(SICON[k], 42) + '<div><b>' + cnt(k) + '</b><span>' + STR[k].label + '</span></div></div>'; }).join('') + '</div>';
+  var gch = ['ทุกระดับ', 'ประถม', 'ม.ต้น', 'ม.ปลาย'].map(function (l, g) { return '<button class="chip' + (S.bf.g === g ? ' on' : '') + '" data-act="bfG" data-v="' + g + '">' + l + '</button>'; }).join('');
+  var tools = '<div class="row" style="margin-bottom:14px">' + gch +
+    '<select class="inp" style="width:auto;height:44px" data-change="bfS" aria-label="กรองตามหัวข้อ">' + skOptions(S.bf.s, true) + '</select>' +
+    '<input class="inp" style="flex:1 1 200px;height:44px" type="search" placeholder="ค้นหาคำถาม" aria-label="ค้นหาคำถาม" value="' + esc(S.bf.q) + '" data-input="bfQ">' +
+    '<button class="btn yellow sm" data-act="newQ">+ เพิ่มข้อสอบ</button></div>';
+  return stats + tools + '<div class="bank' + (S.edit ? '' : ' noedit') + '"><div class="list"><div class="list-head"><span>รายการข้อสอบ</span><span id="bank-count"></span></div><div class="list-body" id="bank-list">' + bankList() + '</div></div>' + (S.edit ? editor() : '') + '</div>';
+}
+
+function bankFiltered() {
+  var q = S.bf.q.trim();
+  return S.bank.filter(function (x) { return (!S.bf.g || x.g === S.bf.g) && (S.bf.s === 'all' || x.s === S.bf.s) && (!q || x.q.indexOf(q) !== -1 || x.o.join(' ').indexOf(q) !== -1); });
+}
+
+function bankList() {
+  var list = bankFiltered();
+  setTimeout(function () { var c = document.getElementById('bank-count'); if (c) c.textContent = list.length + ' ข้อ'; });
+  if (!list.length) return '<div class="empty">ไม่พบข้อสอบที่ตรงกับตัวกรอง</div>';
+  return list.map(function (x) {
+    return '<div class="qitem"><span class="num">#' + x.id + '</span><div class="body"><b style="line-height:1.5">' + esc(x.q) + '</b>' +
+      '<span style="color:#1D7A4E;font-weight:600;font-size:14px">เฉลย ' + LET[x.a] + '. ' + esc(x.o[x.a]) + '</span>' +
+      '<div class="row" style="gap:6px"><span class="tag" style="background:' + GCOL[x.g] + '">' + lvShort(x.g) + '</span><span class="tag" style="background:' + STR[x.s].tint + '">' + STR[x.s].label + '</span>' + (x.src && x.src !== 'ชุดเริ่มต้น' ? '<span class="tag" style="background:#FFF1C7">' + esc(x.src) + '</span>' : '') + '</div></div>' +
+      '<div class="row" style="gap:8px;flex-wrap:nowrap"><button class="icon-btn" style="background:#FFF1C7" data-act="editQ" data-id="' + x.id + '" aria-label="แก้ไขข้อ ' + x.id + '">' + SVG.edit + '</button>' +
+      '<button class="icon-btn" style="background:var(--pink2)" data-act="delQ" data-id="' + x.id + '" aria-label="ลบข้อ ' + x.id + '">' + SVG.trash + '</button></div></div>';
+  }).join('');
+}
+
+function gradeSelect(name, val) { return '<select class="inp" name="' + name + '">' + lvOptions(val) + '</select>'; }
+function strandSelect(name, val) { return '<select class="inp" name="' + name + '">' + skOptions(val) + '</select>'; }
+
+function editor() {
+  var e = S.edit;
+  var opts = [0, 1, 2, 3].map(function (i) {
+    return '<div class="optrow"><input type="radio" name="a" value="' + i + '"' + (e.a === i ? ' checked' : '') + ' aria-label="ให้ตัวเลือก ' + LET[i] + ' เป็นคำตอบที่ถูก"><span class="lt">' + LET[i] + '</span><input class="inp" name="o' + i + '" required maxlength="200" value="' + esc(e.o[i] || '') + '" aria-label="ตัวเลือก ' + LET[i] + '"></div>';
+  }).join('');
+  return '<form class="card editor" data-form="saveQ"><h2 style="font-size:24px">' + (e.id ? 'แก้ไขข้อสอบ #' + e.id : 'เพิ่มข้อสอบใหม่') + '</h2>' +
+    '<div class="grid2"><label class="f">ระดับ' + gradeSelect('g', e.g) + '</label><label class="f">หัวข้อ' + strandSelect('s', e.s) + '</label></div>' +
+    '<label class="f">โจทย์คำถาม<textarea class="inp" name="q" rows="3" required maxlength="1000">' + esc(e.q || '') + '</textarea></label>' +
+    '<fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"><legend style="font-size:14px;font-weight:700;margin-bottom:6px;padding:0">ตัวเลือก (กดวงกลมหน้าคำตอบที่ถูก)</legend>' + opts + '</fieldset>' +
+    '<label class="f">คำอธิบายเฉลย<textarea class="inp" name="ex" rows="2" maxlength="1000">' + esc(e.ex || '') + '</textarea></label>' +
+    '<div class="row"><button class="btn green" type="submit" style="flex:1">บันทึก</button><button class="btn" type="button" data-act="cancelEdit">ยกเลิก</button></div></form>';
+}
+
+/* ---------- แนบไฟล์ ---------- */
+function tabImport() {
+  var m = S.imp || { step: 'upload' };
+  if (m.step === 'reading') {
+    return '<div class="card" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;padding:48px 24px"><div style="position:relative;width:220px;height:190px;display:flex;align-items:center;justify-content:center">' +
+      '<svg width="130" height="156" viewBox="0 0 80 96" aria-hidden="true"><path d="M10 6 H50 L70 26 V86 Q70 90 66 90 H14 Q10 90 10 86 Z" fill="#fff" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/><path d="M50 6 V26 H70 Z" fill="#E9E3D6" stroke="#1F2346" stroke-width="3" stroke-linejoin="round"/><path d="M20 36 H56 M20 46 H50 M20 56 H58 M20 66 H44 M20 76 H52" stroke="#C9CCE4" stroke-width="4" stroke-linecap="round"/></svg>' +
+      '<div style="position:absolute;left:60px;top:40px">' + SVG.magnifier + '</div></div><h2 style="font-size:26px">กำลังอ่านไฟล์ “' + esc(m.file) + '”</h2><p class="muted" style="margin:0">' + esc(m.note) + '</p>' +
+      '<div style="width:min(420px,90%);height:24px;border:3px solid var(--ink);border-radius:999px;overflow:hidden"><div class="stripes"></div></div></div>';
+  }
+  if (m.step === 'error') {
+    return '<div class="card" style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:40px 24px">' + SVG.icon('magnet', 100) + '<h2 style="font-size:26px">อ่านไฟล์นี้ไม่สำเร็จ</h2><p style="margin:0;max-width:620px;line-height:1.6;font-weight:500">' + esc(m.err) + '</p>' +
+      (m.raw ? '<details class="raw" style="width:100%;max-width:720px;text-align:left"><summary>ดูข้อความที่อ่านได้จากไฟล์</summary><pre>' + esc(m.raw) + '</pre></details>' : '') +
+      '<button class="btn yellow" data-act="impReset">เลือกไฟล์ใหม่</button></div>';
+  }
+  if (m.step === 'review') {
+    var items = m.items, ready = items.filter(function (x) { return x.include && !warnOf(x); }).length, warnN = items.filter(function (x) { return !!warnOf(x); }).length;
+    var list = items.map(function (x, i) {
+      var w = warnOf(x), on = x.include && !w;
+      var ops = [0, 1, 2, 3].map(function (k) { var t = x.o[k]; return '<span class="' + (!t ? 'miss' : k === x.a ? 'ok' : '') + '"><b class="disp">' + LET[k] + '.</b> ' + (t ? esc(t) : '(ไม่พบตัวเลือก)') + '</span>'; }).join('');
+      return '<div class="impitem' + (on ? '' : ' off') + '"><input type="checkbox" data-change="impInc" data-i="' + i + '"' + (on ? ' checked' : '') + (w ? ' disabled' : '') + ' aria-label="เลือกนำเข้าข้อ ' + (i + 1) + '" style="width:24px;height:24px;margin-top:4px;accent-color:#2FB67A">' +
+        '<div><b style="font-size:17px;line-height:1.5">' + (i + 1) + '. ' + esc(x.q) + '</b><div class="ops">' + ops + '</div>' + (w ? '<span class="warn">' + w + '</span>' : '') + '</div>' +
+        '<div class="meta" style="display:flex;flex-direction:column;gap:8px">' +
+        '<label class="f" style="flex-direction:row;align-items:center;justify-content:space-between">ระดับ<select class="inp" style="width:160px;height:40px" data-change="impG" data-i="' + i + '">' + lvOptions(x.g, false, true) + '</select></label>' +
+        '<label class="f" style="flex-direction:row;align-items:center;justify-content:space-between">หัวข้อ<select class="inp" style="width:160px;height:40px" data-change="impS" data-i="' + i + '">' + skOptions(x.s, false, true) + '</select></label>' +
+        '<label class="f" style="flex-direction:row;align-items:center;justify-content:space-between">เฉลย<select class="inp" style="width:160px;height:40px" data-change="impA" data-i="' + i + '"><option value="-1">ยังไม่เลือก</option>' + [0, 1, 2, 3].map(function (k) { return '<option value="' + k + '"' + (x.a === k ? ' selected' : '') + '>' + LET[k] + '</option>'; }).join('') + '</select></label></div></div>';
+    }).join('');
+    return '<div class="row" style="margin-bottom:14px"><span class="tag" style="background:#fff;padding:6px 14px">' + esc(m.file) + '</span><span class="tag" style="background:var(--sky);padding:6px 14px">พบ ' + items.length + ' ข้อ</span><span class="tag" style="background:var(--green2);padding:6px 14px">พร้อมนำเข้า ' + ready + ' ข้อ</span>' + (warnN ? '<span class="tag" style="background:var(--orange);padding:6px 14px">ต้องตรวจเพิ่ม ' + warnN + ' ข้อ</span>' : '') +
+      '<label class="f" style="flex-direction:row;align-items:center;gap:8px;margin-left:auto">ตั้งระดับให้ทุกข้อ<select class="inp" style="width:auto;height:44px" data-change="impAllG"><option value="">—</option>' + lvOptions(-1, false, true) + '</select></label></div>' +
+      '<p class="muted" style="margin:0 0 14px;font-size:14px">ตรวจโจทย์และเฉลยก่อนนำเข้าทุกครั้ง โดยเฉพาะไฟล์ PDF และรูปภาพ ซึ่งการอ่านตัวอักษรอาจคลาดเคลื่อนได้</p>' +
+      '<div style="display:flex;flex-direction:column;gap:14px">' + list + '</div>' +
+      '<details class="raw" style="margin-top:16px"><summary>ดูข้อความทั้งหมดที่อ่านได้จากไฟล์</summary><pre>' + esc(m.raw) + '</pre></details>' +
+      '<div class="row" style="justify-content:space-between;margin-top:20px"><button class="btn" data-act="impReset">เลือกไฟล์ใหม่</button><button class="btn green big" data-act="impConfirm"' + (ready ? '' : ' disabled') + '>นำเข้า ' + ready + ' ข้อลงคลังข้อสอบ</button></div>';
+  }
+  return '<label class="drop" id="drop">' +
+    '<input class="sr" type="file" id="fileIn" accept=".pdf,.docx,.txt,image/png,image/jpeg,image/webp">' +
+    '<div class="row" style="align-items:flex-end;justify-content:center;gap:18px">' + SVG.file('PDF', '#FF8FA3', 80) + SVG.file('WORD', '#7CC6FA', 96) + SVG.file('รูปภาพ', '#5FD39B', 80) + '</div>' +
+    '<span class="disp" style="font-size:24px;font-weight:600">ลากไฟล์มาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</span>' +
+    '<span class="muted">รองรับ Word (.docx), PDF, รูปภาพ (JPG, PNG) และไฟล์ข้อความ (.txt) ขนาดไม่เกิน 10 MB</span>' +
+    '<span class="btn dark" style="pointer-events:none">เลือกไฟล์จากเครื่อง</span></label>' +
+    '<div class="grid2" style="margin-top:20px"><div class="soft"><div class="disp" style="font-size:18px;font-weight:600;margin-bottom:8px">พิมพ์ข้อสอบแบบนี้ ระบบจะอ่านได้แม่นที่สุด</div>' +
+    '<pre style="margin:0;background:var(--paper);border:2px dashed #C9B98F;border-radius:14px;padding:12px 16px;font-family:inherit;font-size:15px;line-height:1.6;white-space:pre-wrap">ม.ต้น\n1. ส่วนใดของพืชทำหน้าที่ดูดน้ำ\nก. ใบ   ข. ดอก   ค. ราก   ง. ผล\nตอบ ค\nอธิบาย รากดูดน้ำและธาตุอาหารจากดิน</pre></div>' +
+    '<div class="soft"><div class="disp" style="font-size:18px;font-weight:600;margin-bottom:8px">เคล็ดลับ</div><ul style="margin:0;padding-left:20px;line-height:1.7;font-weight:500">' +
+    '<li>ขึ้นต้นโจทย์ด้วยเลขข้อ เช่น 1. หรือ ข้อ 1</li><li>ตัวเลือกใช้ ก. ข. ค. ง. (อยู่บรรทัดเดียวกันได้)</li><li>ระบุเฉลยด้วย “ตอบ” หรือ “เฉลย” หรือใส่ * หน้าตัวเลือกที่ถูก</li><li>ใส่ “ประถม” “ม.ต้น” “ม.ปลาย” หรือรหัสวิชา เช่น พว21001 ที่หัวกระดาษ ระบบจะตั้งระดับให้อัตโนมัติ</li><li>PDF และรูปภาพ: ใช้ภาพที่ชัด ตรง ไม่เอียง และไม่เกินประมาณ 10 หน้าต่อไฟล์</li></ul></div></div>';
+}
+
+function warnOf(x) {
+  if (x.o.length < 4) return 'พบตัวเลือกเพียง ' + x.o.length + ' ข้อ ต้องมี 4 ตัวเลือก (แก้ไขภายหลังในคลังข้อสอบได้หลังเพิ่มตัวเลือกในไฟล์)';
+  if (x.a < 0) return 'ยังไม่พบเฉลย เลือกเฉลยทางขวาก่อนนำเข้า';
+  return '';
+}
+
+/* ---------- รายงาน ---------- */
+function pLabel(p) {
+  return p > 0.8 ? ['ง่ายมาก', '#DCEFFF'] : p > 0.6 ? ['ค่อนข้างง่าย', '#E6F4FF'] : p > 0.4 ? ['ปานกลาง', '#C8F2DA'] : p >= 0.2 ? ['ค่อนข้างยาก', '#FFE3C2'] : ['ยากมาก', '#FFD6DE'];
+}
+
+function tabReport() {
+  var R = S.report;
+  var gsel = '<select class="inp" style="width:auto;height:44px" data-change="rfG" aria-label="ระดับ">' + lvOptions(S.rf.grade, true, true) + '</select>';
+  var rsel = '<select class="inp" style="width:auto;height:44px" data-change="rfR" aria-label="ศกร.ระดับตำบล"><option value="">ทุก ศกร.ตำบล</option>' + (R ? R.rooms : []).map(function (r) { return '<option value="' + esc(r) + '"' + (S.rf.room === r ? ' selected' : '') + '>' + esc(r.replace('ศกร.ระดับตำบล', 'ต.')) + '</option>'; }).join('') + '</select>';
+  var head = '<div class="row" style="margin-bottom:18px"><span style="font-weight:700">ดูผลของ</span>' + gsel + rsel + '<button class="btn sm" data-act="loadReport">รีเฟรช</button><button class="btn sm" data-act="openSheet" style="margin-left:auto">เปิด Google Sheet</button></div>';
+  if (!R) return head + '<div class="empty">กำลังโหลดรายงาน...</div>';
+  if (!R.summary.attempts) return head + '<div class="card empty">' + SVG.icon('planet', 100) + '<p>ยังไม่มีผลการสอบในกลุ่มนี้ เมื่อผู้เรียนทำข้อสอบเสร็จ คะแนนจะมาแสดงที่นี่</p></div>';
+  var sm = R.summary, maxD = Math.max.apply(null, R.dist.concat([1]));
+  var bands = ['0–49%', '50–59%', '60–69%', '70–79%', '80–100%'];
+  var bars = R.dist.map(function (v, i) {
+    return '<div class="bar"><span class="tip">' + bands[i] + ': ' + v + ' ครั้ง</span><span class="v">' + v + '</span><div class="col" style="height:' + Math.round(v / maxD * 170) + 'px"></div></div>';
+  }).join('');
+  var stu = R.perStudent.map(function (s) { return '<tr><td>' + lvShort(s.grade) + '</td><td>' + esc(s.room) + '</td><td>' + esc(s.name) + '</td><td class="n">' + s.attempts + '</td><td class="n">' + s.avg + '%</td><td class="n"><b>' + s.best + '%</b></td><td class="n">' + s.certs + '</td><td>' + esc(s.last) + '</td></tr>'; }).join('');
+  var items = R.perQuestion.map(function (q) {
+    var L = pLabel(q.p);
+    var picks = q.picks.map(function (c, i) { return (i === q.a ? '<b style="color:#1D7A4E">' : '<span>') + LET[i] + ' ' + c + (i === q.a ? '</b>' : '</span>'); }).join(' · ');
+    return '<tr><td class="n">#' + q.id + '</td><td style="min-width:260px">' + esc(q.q) + '</td><td>' + (q.g ? lvShort(q.g) : '') + '</td><td class="n">' + q.n + '</td><td class="n">' + q.correct + '</td><td class="n"><b>' + q.p.toFixed(2) + '</b></td><td><span class="tag" style="background:' + L[1] + '">' + L[0] + '</span></td><td style="white-space:nowrap">' + picks + '</td></tr>';
+  }).join('');
+  var recent = R.recent.map(function (r) { return '<tr><td>' + esc(r.time) + '</td><td>' + esc(r.name) + '</td><td>' + lvShort(r.grade) + ' · ' + esc(r.room) + '</td><td>' + esc(r.quiz) + ' · ' + esc(r.strand) + '</td><td class="n">' + r.score + '/' + r.total + '</td><td class="n"><b>' + r.pct + '%</b></td><td>' + esc(r.certNo || '—') + '</td></tr>'; }).join('');
+  return head +
+    '<div class="grid4"><div class="stat" style="background:#FFF1C7"><div><b>' + sm.attempts + '</b><span>จำนวนครั้งที่ทำข้อสอบ</span></div></div><div class="stat" style="background:var(--sky)"><div><b>' + sm.students + '</b><span>จำนวนผู้เรียน</span></div></div>' +
+    '<div class="stat" style="background:var(--green2)"><div><b>' + sm.avg + '%</b><span>คะแนนเฉลี่ย</span></div></div><div class="stat" style="background:var(--purple)"><div><b>' + (sm.certs || 0) + '</b><span>เกียรติบัตรที่ออก (ร้อยละ ' + PASS_PCT + ' ขึ้นไป)</span></div></div></div>' +
+    '<div class="grid2" style="margin-top:24px;align-items:start"><div class="soft"><h3 style="font-size:20px;margin-bottom:4px">การกระจายของคะแนน</h3><p class="muted" style="margin:0 0 10px;font-size:14px">จำนวนครั้งที่ทำข้อสอบ แยกตามช่วงร้อยละของคะแนน</p><div class="bars">' + bars + '</div><div class="blabels">' + bands.map(function (b) { return '<span>' + b + '</span>'; }).join('') + '</div></div>' +
+    '<div class="soft"><h3 style="font-size:20px;margin-bottom:8px">อ่านรายงานนี้อย่างไร</h3><ul style="margin:0;padding-left:20px;line-height:1.7;font-weight:500;font-size:15px"><li><b>ค่า p (ความยาก)</b> = สัดส่วนผู้ตอบถูก ค่ายิ่งต่ำยิ่งยาก</li><li>ข้อที่ค่า p อยู่ระหว่าง 0.20–0.80 ถือว่าความยากเหมาะสม</li><li>ข้อที่ต่ำกว่า 0.20 หรือสูงกว่า 0.80 ควรตรวจโจทย์และตัวลวง</li><li>ถ้ามีผู้ตอบน้อยกว่าประมาณ 20 คน ค่า p ยังไม่นิ่ง ควรดูประกอบกับการเลือกตัวเลือก</li></ul></div></div>' +
+    '<h3 style="font-size:24px;margin:28px 0 12px">ผลรายบุคคล</h3><div class="tbl"><table class="t"><thead><tr><th>ระดับ</th><th>ศกร.ระดับตำบล</th><th>ชื่อ-สกุล</th><th>จำนวนครั้ง</th><th>เฉลี่ย</th><th>สูงสุด</th><th>เกียรติบัตร</th><th>ล่าสุด</th></tr></thead><tbody>' + stu + '</tbody></table></div>' +
+    '<h3 style="font-size:24px;margin:28px 0 12px">วิเคราะห์ข้อสอบรายข้อ <span class="muted" style="font-size:16px">(เรียงจากยากไปง่าย)</span></h3><div class="tbl"><table class="t"><thead><tr><th>รหัส</th><th>คำถาม</th><th>ระดับ</th><th>ผู้ตอบ</th><th>ตอบถูก</th><th>ค่า p</th><th>ระดับ</th><th>จำนวนผู้เลือกแต่ละตัวเลือก</th></tr></thead><tbody>' + items + '</tbody></table></div>' +
+    '<h3 style="font-size:24px;margin:28px 0 12px">การทำข้อสอบล่าสุด</h3><div class="tbl"><table class="t"><thead><tr><th>วันเวลา</th><th>ชื่อ-สกุล</th><th>ระดับ · ศกร.ตำบล</th><th>ชุดข้อสอบ</th><th>คะแนน</th><th>ร้อยละ</th><th>เลขที่เกียรติบัตร</th></tr></thead><tbody>' + recent + '</tbody></table></div>';
+}
+
+function tabSettings() {
+  return '<div class="grid2" style="align-items:start"><form class="card login" data-form="changePw"><h2 style="font-size:24px">เปลี่ยนรหัสผ่านครู</h2>' +
+    '<label class="f">รหัสผ่านใหม่ (อย่างน้อย 4 ตัว)<input class="inp" type="password" name="p1" required minlength="4" autocomplete="new-password"></label>' +
+    '<label class="f">ยืนยันรหัสผ่านใหม่<input class="inp" type="password" name="p2" required minlength="4" autocomplete="new-password"></label>' +
+    '<button class="btn dark" type="submit">บันทึกรหัสผ่านใหม่</button></form>' +
+    '<div class="card login"><h2 style="font-size:24px">ข้อมูลระบบ</h2><p style="margin:0;line-height:1.7;font-weight:500">ข้อสอบและผลคะแนนทั้งหมดเก็บอยู่ใน Google Sheet ของคุณครู ในแท็บ “ข้อสอบ” และ “ผลสอบ” แก้ไขใน Sheet โดยตรงได้ (ช่องเฉลยใช้ ก ข ค หรือ ง)</p>' +
+    '<button class="btn yellow" data-act="openSheet">เปิด Google Sheet</button>' +
+    '<p class="muted" style="margin:0;font-size:14px;line-height:1.6">ลิงก์สำหรับผู้เรียน คือลิงก์เดียวกับหน้านี้ (ลิงก์ของเว็บแอปที่ลงท้ายด้วย /exec) ส่งให้ผู้เรียนผ่าน LINE หรือทำเป็น QR Code ได้</p></div></div>';
+}
+
+/* ================= วาดหน้า ================= */
+function render() {
+  var v = S.view, body;
+  if (v === 'home') body = viewHome();
+  else if (v === 'quiz') body = viewQuiz();
+  else if (v === 'result') body = viewResult();
+  else if (v === 'history') body = viewHistory();
+  else if (v === 'cert') body = viewCert();
+  else if (v === 'tlogin') body = viewTLogin();
+  else if (v === 'teacher') body = viewTeacher();
+  else body = viewWelcome();
+  document.getElementById('app').innerHTML = nav() + '<main>' + body + '</main>';
+  var af = document.querySelector('[autofocus]'); if (af) af.focus();
+}
+function go(v) { S.view = v; render(); window.scrollTo(0, 0); }
+
+/* ================= การทำงาน ================= */
+function loadSummary() { return api('getSummary').then(function (s) { S.summary = s; if (s.cert) CERT = s.cert; if (s.passPct) PASS_PCT = s.passPct; if (S.view === 'home' || (S.view === 'welcome' && !document.activeElement.closest('form'))) render(); }).catch(function (e) { toast(e.message, true); }); }
+function loadBank() { return api('tListQuestions', S.tpw).then(function (b) { S.bank = b; if (S.view === 'teacher') render(); }).catch(teacherErr); }
+function loadReport() { S.report = null; if (S.tab === 'report') render(); return api('tReport', S.tpw, S.rf).then(function (r) { S.report = r; if (S.view === 'teacher' && S.tab === 'report') render(); }).catch(teacherErr); }
+function teacherErr(e) { toast(e.message, true); if (/รหัสผ่าน/.test(e.message)) { S.tpw = null; sstore('wsn_tpw', null); go('tlogin'); } }
+
+function startQuiz(g) {
+  busy('กำลังเตรียมข้อสอบ...');
+  api('getQuiz', g, S.strand, S.count).then(function (qs) {
+    busy();
+    if (!qs.length) { toast('ยังไม่มีข้อสอบในระดับหรือหัวข้อที่เลือก', true); return; }
+    S.quiz = { grade: g, strand: S.strand, qs: qs, idx: 0, picked: -1, results: [], saved: '' };
+    go('quiz');
+  }).catch(function (e) { busy(); toast(e.message, true); });
+}
+
+function saveResult() {
+  var z = S.quiz, st = S.student;
+  z.saved = 'saving'; render();
+  api('submitResult', { name: st.name, grade: st.grade, room: st.room, quizGrade: z.grade, strand: z.strand,
+    answers: z.results.map(function (r, i) { return { id: z.qs[i].id, pick: r.pick }; }) })
+    .then(function (r) { z.saved = 'ok'; z.res = r; if (S.view === 'result') render(); })
+    .catch(function (e) { z.saved = 'err'; if (S.view === 'result') render(); toast('ส่งคะแนนไม่สำเร็จ: ' + e.message, true); });
+}
+
+var ACT = {
+  goHome: function () { if (S.view === 'teacher' || S.view === 'tlogin') { go(S.student ? 'home' : 'welcome'); return; } go(S.student ? 'home' : 'welcome'); if (S.student) loadSummary(); },
+  goStudent: function () { go(S.student ? 'home' : 'welcome'); if (S.student) loadSummary(); },
+  goTeacher: function () { if (S.tpw) { go('teacher'); if (!S.bank) loadBank(); } else go('tlogin'); },
+  logoutTeacher: function () { S.tpw = null; S.bank = null; S.report = null; S.imp = null; S.edit = null; sstore('wsn_tpw', null); go(S.student ? 'home' : 'welcome'); toast('ออกจากระบบครูแล้ว'); },
+  changeStudent: function () { S.student = null; go('welcome'); },
+  setStrand: function (el) { S.strand = el.dataset.v; render(); },
+  setCount: function (el) { S.count = Number(el.dataset.v); render(); },
+  start: function (el) { startQuiz(Number(el.dataset.g)); },
+  retry: function () { startQuiz(S.quiz.grade); },
+  quitQuiz: function () { if (!S.quiz.results.length || confirm('ออกจากข้อสอบชุดนี้? คะแนนรอบนี้จะไม่ถูกบันทึก')) go('home'); },
+  pick: function (el) {
+    var z = S.quiz; if (z.picked !== -1) return;
+    var i = Number(el.dataset.i), ok = i === z.qs[z.idx].a;
+    z.picked = i; z.results.push({ ok: ok, pick: i });
+    if (ok) { S.stars++; store(starKey(), S.stars); }
+    render(); var nb = document.getElementById('nextBtn'); if (nb) nb.focus({ preventScroll: true });
+  },
+  next: function () {
+    var z = S.quiz;
+    if (z.idx + 1 < z.qs.length) { z.idx++; z.picked = -1; render(); window.scrollTo(0, 0); }
+    else { go('result'); saveResult(); }
+  },
+  resave: function () { saveResult(); },
+  certFromResult: function () {
+    var z = S.quiz, st = S.student, r = z.res;
+    openCert({ name: st.name, grade: st.grade, room: st.room, quizGrade: z.grade, quiz: r.quiz, strand: r.strand, score: r.score, total: r.total, pct: r.pct, certNo: r.certNo, certDate: r.certDate }, 'result');
+  },
+  certFromHistory: function (el) {
+    var r = S.history[Number(el.dataset.i)], st = S.student;
+    var qg = ['', 'ประถม', 'ม.ต้น', 'ม.ปลาย'].indexOf(r.quiz);
+    openCert({ name: st.name, grade: st.grade, room: st.room, quizGrade: qg > 0 ? qg : 0, quiz: r.quiz, strand: r.strand, score: r.score, total: r.total, pct: r.pct, certNo: r.certNo, certDate: r.certDate }, 'history');
+  },
+  certBack: function () { go(S.certBack || 'home'); },
+  certPrint: function () { printCert(); },
+  history: function () {
+    S.history = null; go('history'); var st = S.student;
+    api('getMyResults', st.name, st.grade, st.room).then(function (h) { S.history = h; if (S.view === 'history') render(); }).catch(function (e) { toast(e.message, true); });
+  },
+  tab: function (el) {
+    S.tab = el.dataset.v; render();
+    if (S.tab === 'report') loadReport();
+    if (S.tab === 'bank' && !S.bank) loadBank();
+  },
+  bfG: function (el) { S.bf.g = Number(el.dataset.v); render(); },
+  newQ: function () { S.edit = { g: S.bf.g || 1, s: S.bf.s === 'all' ? 'process' : S.bf.s, q: '', o: ['', '', '', ''], a: 0, ex: '' }; render(); },
+  editQ: function (el) { var x = S.bank.filter(function (q) { return q.id === Number(el.dataset.id); })[0]; if (x) { S.edit = JSON.parse(JSON.stringify(x)); render(); } },
+  cancelEdit: function () { S.edit = null; render(); },
+  delQ: function (el) {
+    var id = Number(el.dataset.id);
+    if (!confirm('ลบข้อสอบ #' + id + ' ออกจากคลัง?')) return;
+    busy('กำลังลบ...');
+    api('tDeleteQuestion', S.tpw, id).then(function () { busy(); toast('ลบข้อ #' + id + ' แล้ว'); if (S.edit && S.edit.id === id) S.edit = null; return loadBank(); }).catch(function (e) { busy(); teacherErr(e); });
+  },
+  impReset: function () { S.imp = null; render(); },
+  impConfirm: function () {
+    var m = S.imp, ready = m.items.filter(function (x) { return x.include && !warnOf(x); });
+    if (!ready.length) return;
+    busy('กำลังนำเข้าข้อสอบ...');
+    api('tImportQuestions', S.tpw, ready.map(function (x) { return { g: Number(x.g), s: x.s, q: x.q, o: x.o.slice(0, 4), a: x.a, ex: x.ex }; }), m.file)
+      .then(function (r) { busy(); toast('นำเข้า ' + r.count + ' ข้อจาก “' + m.file + '” แล้ว'); S.imp = null; S.tab = 'bank'; S.bf = { g: 0, s: 'all', q: '' }; S.bank = null; render(); loadBank(); })
+      .catch(function (e) { busy(); teacherErr(e); });
+  },
+  loadReport: function () { loadReport(); },
+  openSheet: function () {
+    api('tSheetUrl', S.tpw).then(function (u) { if (u) window.open(u, '_blank'); else toast('โหมดทดลองยังไม่มี Google Sheet', true); }).catch(teacherErr);
+  }
+};
+
+var FORM = {
+  studentLogin: function (f) {
+    var d = { name: f.name.value.trim().replace(/\s+/g, ' '), grade: Number(f.grade.value), room: f.room.value };
+    if (!d.name || !d.room) { toast('กรุณากรอกชื่อและเลือก ศกร.ระดับตำบล', true); return; }
+    S.student = d; store('wsn_student', d); S.stars = Number(store(starKey())) || 0;
+    go('home'); loadSummary();
+  },
+  teacherLogin: function (f) {
+    var pw = f.pw.value; busy('กำลังตรวจสอบ...');
+    api('teacherLogin', pw).then(function (r) {
+      busy();
+      if (!r.ok) { toast('รหัสผ่านไม่ถูกต้อง', true); f.pw.value = ''; f.pw.focus(); return; }
+      S.tpw = pw; sstore('wsn_tpw', pw); S.tab = 'bank'; go('teacher'); loadBank();
+    }).catch(function (e) { busy(); toast(e.message, true); });
+  },
+  saveQ: function (f) {
+    var a = f.querySelector('input[name=a]:checked');
+    var q = { id: S.edit.id || null, g: Number(f.g.value), s: f.s.value, q: f.q.value.trim(), o: [f.o0.value.trim(), f.o1.value.trim(), f.o2.value.trim(), f.o3.value.trim()], a: a ? Number(a.value) : -1, ex: f.ex.value.trim() };
+    if (q.a < 0) { toast('กรุณาเลือกเฉลย', true); return; }
+    busy('กำลังบันทึก...');
+    api('tSaveQuestion', S.tpw, q).then(function (r) { busy(); toast('บันทึกข้อ #' + r.id + ' แล้ว'); S.edit = null; return loadBank(); }).catch(function (e) { busy(); teacherErr(e); });
+  },
+  changePw: function (f) {
+    if (f.p1.value !== f.p2.value) { toast('รหัสผ่านทั้งสองช่องไม่ตรงกัน', true); return; }
+    busy('กำลังบันทึก...');
+    api('tChangePassword', S.tpw, f.p1.value).then(function () { busy(); S.tpw = f.p1.value; sstore('wsn_tpw', S.tpw); f.reset(); toast('เปลี่ยนรหัสผ่านแล้ว ครั้งหน้าใช้รหัสใหม่เข้าสู่ระบบ'); }).catch(function (e) { busy(); teacherErr(e); });
+  }
+};
+
+function updImp(i, patch) { Object.assign(S.imp.items[i], patch); render(); }
+var CHG = {
+  bfS: function (el) { S.bf.s = el.value; render(); },
+  impInc: function (el) { updImp(Number(el.dataset.i), { include: el.checked }); },
+  impG: function (el) { updImp(Number(el.dataset.i), { g: Number(el.value) }); },
+  impS: function (el) { updImp(Number(el.dataset.i), { s: el.value }); },
+  impA: function (el) { var a = Number(el.value), x = S.imp.items[Number(el.dataset.i)]; updImp(Number(el.dataset.i), { a: a, include: a >= 0 && x.o.length >= 4 }); },
+  impAllG: function (el) { if (!Number(el.value)) return; S.imp.items.forEach(function (x) { x.g = Number(el.value); }); render(); },
+  rfG: function (el) { S.rf.grade = Number(el.value); loadReport(); },
+  rfR: function (el) { S.rf.room = el.value; loadReport(); }
+};
+var INP = {
+  bfQ: function (el) { S.bf.q = el.value; var l = document.getElementById('bank-list'); if (l) l.innerHTML = bankList(); }
+};
+
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('[data-act]'); if (!el || el.disabled) return;
+  var fn = ACT[el.dataset.act]; if (fn) { e.preventDefault(); fn(el, e); }
+});
+document.addEventListener('submit', function (e) {
+  var f = e.target.closest('form[data-form]'); if (!f) return;
+  e.preventDefault(); var fn = FORM[f.dataset.form]; if (fn) fn(f);
+});
+document.addEventListener('change', function (e) {
+  if (e.target.id === 'fileIn') { var file = e.target.files && e.target.files[0]; e.target.value = ''; handleFile(file); return; }
+  var el = e.target.closest('[data-change]'); if (el && CHG[el.dataset.change]) CHG[el.dataset.change](el);
+});
+document.addEventListener('input', function (e) {
+  var el = e.target.closest('[data-input]'); if (el && INP[el.dataset.input]) INP[el.dataset.input](el);
+});
+document.addEventListener('dragover', function (e) { var d = e.target.closest && e.target.closest('#drop'); if (d) { e.preventDefault(); d.classList.add('over'); } });
+document.addEventListener('dragleave', function (e) { var d = e.target.closest && e.target.closest('#drop'); if (d) d.classList.remove('over'); });
+document.addEventListener('drop', function (e) {
+  var d = e.target.closest && e.target.closest('#drop'); if (!d) return;
+  e.preventDefault(); d.classList.remove('over'); handleFile(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]);
+});
+
+/* ================= อ่านไฟล์ข้อสอบ ================= */
+var LETTER_IDX = { 'ก': 0, 'ข': 1, 'ค': 2, 'ง': 3, a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+var KW_PROCESS = ['วิธีการทางวิทยาศาสตร์', 'ทักษะกระบวนการ', 'สมมติฐาน', 'ตัวแปร', 'โครงงาน', 'การสังเกต', 'ข้อมูล', 'การทดลอง'];
+var KW_ASTRO = ['ดวงอาทิตย์', 'ดวงจันทร์', 'ดาว', 'อวกาศ', 'ดาวเทียม', 'สุริยุปราคา', 'จันทรุปราคา', 'ข้างขึ้น', 'ฤดู', 'ปีแสง', 'กลางวัน'];
+var KW_MATTER = ['สาร', 'ธาตุ', 'สารละลาย', 'กรด', 'เบส', 'pH', 'ปิโตรเลียม', 'พอลิเมอร์', 'พลาสติก', 'การแยก', 'สถานะ', 'ละลาย', 'เคมี'];
+var KW_LIFE = ['พืช', 'สัตว์', 'ร่างกาย', 'อวัยวะ', 'อาหาร', 'สิ่งมีชีวิต', 'ผีเสื้อ', 'ราก', 'ใบ', 'ดอก', 'ย่อย', 'เซลล์', 'กระดูก', 'หัวใจ', 'ปอด', 'โซ่อาหาร', 'ลำไส้', 'พันธุกรรม'];
+var KW_EARTH = ['ดวงอาทิตย์', 'ดวงจันทร์', 'ดาว', 'โลก', 'ดิน', 'หิน', 'เมฆ', 'หมอก', 'ฝน', 'ฟ้า', 'อวกาศ', 'ลม', 'อากาศ', 'ฤดู', 'ภูเขา', 'น้ำค้าง', 'สุริยุปราคา', 'จันทรุปราคา'];
+var KW_PHYS = ['เสียง', 'แสง', 'แรง', 'ไฟฟ้า', 'แม่เหล็ก', 'สาร', 'พลังงาน', 'ความร้อน', 'สถานะ', 'ละลาย', 'วัสดุ'];
+
+function guessStrand(q, opts) {
+  var has = function (t, l) { return l.some(function (k) { return t.indexOf(k) !== -1; }); };
+  var order = [['process', KW_PROCESS], ['astro', KW_ASTRO], ['life', KW_LIFE.concat(['สิ่งแวดล้อม', 'นิเวศ', 'ทรัพยากร', 'เรือนกระจก', 'DNA', 'ยีน'])], ['matter', KW_MATTER], ['energy', KW_PHYS]];
+  for (var i = 0; i < order.length; i++) if (has(q, order[i][1])) return order[i][0];
+  for (var j = 0; j < order.length; j++) if (has(opts, order[j][1])) return order[j][0];
+  return 'energy';
+}
+
+function parseQuestions(text) {
+  var head = text.slice(0, 400);
+  var g = /ม\.?\s*ปลาย|มัธยมศึกษาตอนปลาย|31001/.test(head) ? 3 : /ม\.?\s*ต้น|มัธยมศึกษาตอนต้น|21001/.test(head) ? 2 : 1;
+  var lines = [];
+  text.replace(/\r/g, '').split('\n').forEach(function (l) {
+    l = l.replace(/ /g, ' ').trim(); if (!l) return;
+    l.split(/\s+(?=\*?\(?[กขคง][\.\)]\s*\S)/).forEach(function (p) { if (p.trim()) lines.push(p.trim()); });
+  });
+  var qRe = /^(?:ข้อ(?:ที่)?\s*)?(\d{1,3})\s*[\.\)]\s*(.+)$/;
+  var oRe = /^(\*)?\(?([กขคงabcdABCD])[\.\)]\s*(.+)$/;
+  var aRe = /^(?:ตอบ|เฉลย|คำตอบ|answer)\s*[:：\-]?\s*(?:ข้อ\s*)?\(?([กขคงabcdABCD1-4])/i;
+  var exRe = /^(?:คำอธิบาย|อธิบาย|เหตุผล)\s*[:：\-]?\s*(.+)$/;
+  var out = [], cur = null;
+  lines.forEach(function (l) {
+    var m;
+    if ((m = l.match(aRe)) && cur) { cur.a = LETTER_IDX[m[1].toLowerCase()]; return; }
+    if ((m = l.match(exRe)) && cur) { cur.ex = m[1]; return; }
+    if ((m = l.match(oRe)) && cur) { if (m[1]) cur.a = cur.o.length; cur.o.push(m[3].trim()); return; }
+    if ((m = l.match(qRe))) { cur = { q: m[2].trim(), o: [], a: -1, ex: '' }; out.push(cur); return; }
+    if (cur && cur.o.length === 0) cur.q += ' ' + l;
+    else if (cur && cur.ex) cur.ex += ' ' + l;
+  });
+  return out.map(function (x) {
+    return { q: x.q, o: x.o.slice(0, 4), a: x.a, ex: x.ex, g: g, s: guessStrand(x.q, x.o.join(' ')), include: x.o.length >= 4 && x.a >= 0 };
+  });
+}
+
+function readDocx(buf) {
+  var u8 = new Uint8Array(buf), dv = new DataView(buf), e = -1;
+  for (var i = u8.length - 22; i >= Math.max(0, u8.length - 66000); i--) { if (dv.getUint32(i, true) === 0x06054b50) { e = i; break; } }
+  if (e < 0) return Promise.reject(new Error('zip'));
+  var count = dv.getUint16(e + 10, true), p = dv.getUint32(e + 16, true);
+  for (var n = 0; n < count; n++) {
+    var method = dv.getUint16(p + 10, true), csize = dv.getUint32(p + 20, true);
+    var nlen = dv.getUint16(p + 28, true), xlen = dv.getUint16(p + 30, true), clen = dv.getUint16(p + 32, true), off = dv.getUint32(p + 42, true);
+    var name = new TextDecoder().decode(u8.subarray(p + 46, p + 46 + nlen));
+    if (name === 'word/document.xml') {
+      var start = off + 30 + dv.getUint16(off + 26, true) + dv.getUint16(off + 28, true);
+      var data = u8.subarray(start, start + csize);
+      var bytesP = method === 8 ? new Response(new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer().then(function (b) { return new Uint8Array(b); }) : Promise.resolve(data);
+      return bytesP.then(function (bytes) {
+        var xml = new TextDecoder().decode(bytes);
+        return xml.split(/<\/w:p>/).map(function (para) {
+          return (para.match(/<w:t(?:\s[^>]*)?>[^<]*<\/w:t>|<w:tab\s*\/>|<w:br\s*\/>/g) || []).map(function (x) {
+            if (/^<w:tab/.test(x)) return ' '; if (/^<w:br/.test(x)) return '\n'; return x.replace(/<[^>]+>/g, '');
+          }).join('');
+        }).join('\n').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
+      });
+    }
+    p += 46 + nlen + xlen + clen;
+  }
+  return Promise.reject(new Error('doc'));
+}
+
+function toBase64(file) {
+  return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.onerror = rej; r.readAsDataURL(file); });
+}
+
+function handleFile(file) {
+  if (!file) return;
+  var name = file.name || 'ไฟล์', ext = (name.split('.').pop() || '').toLowerCase();
+  var isImg = /^image\//.test(file.type) || ['jpg', 'jpeg', 'png', 'webp'].indexOf(ext) !== -1;
+  var fail = function (msg, raw) { S.imp = { step: 'error', file: name, err: msg, raw: raw || '' }; render(); };
+  if (ext === 'doc') return fail('ไฟล์ .doc แบบเก่ายังอ่านไม่ได้ กรุณาเปิดใน Word แล้วบันทึกเป็น .docx ก่อนแนบใหม่');
+  if (['docx', 'txt', 'pdf'].indexOf(ext) === -1 && !isImg) return fail('รองรับเฉพาะ Word (.docx), PDF, รูปภาพ JPG/PNG และไฟล์ .txt');
+  if (file.size > 10 * 1024 * 1024) return fail('ไฟล์ใหญ่เกิน 10 MB กรุณาแบ่งไฟล์หรือลดขนาดรูปก่อนแนบ');
+  S.imp = { step: 'reading', file: name, note: ext === 'docx' ? 'กำลังดึงข้อความจากเอกสาร Word' : ext === 'txt' ? 'กำลังอ่านข้อความ' : 'กำลังอ่านตัวอักษรจากภาพด้วย OCR อาจใช้เวลาประมาณ 10–30 วินาที' };
+  render();
+  var textP;
+  if (ext === 'docx') textP = file.arrayBuffer().then(readDocx).catch(function () { throw new Error('เปิดไฟล์ Word นี้ไม่ได้ ไฟล์อาจเสียหายหรือมีรหัสผ่าน'); });
+  else if (ext === 'txt') textP = file.text();
+  else textP = toBase64(file).then(function (b64) {
+    return api('tExtractText', S.tpw, { name: name, mimeType: file.type || (ext === 'pdf' ? 'application/pdf' : 'image/jpeg'), data: b64 });
+  }).then(function (r) { return r.text; });
+  textP.then(function (text) {
+    var items = parseQuestions(text || '');
+    if (!items.length) return fail('ไม่พบข้อสอบในไฟล์นี้ ลองจัดรูปแบบตามตัวอย่าง: เลขข้อ ตัวเลือก ก–ง และบรรทัด “ตอบ”', text);
+    S.imp = { step: 'review', file: name, items: items, raw: text }; render();
+  }).catch(function (e) { if (/รหัสผ่าน/.test(e.message)) return teacherErr(e); fail(e.message); });
+}
+
+/* ================= เกียรติบัตร ================= */
+function tambonList() { return (S.summary && S.summary.tambons) || TAMBONS; }
+function thaiDateJs(d) {
+  var m = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+  return d.getDate() + ' ' + m[d.getMonth()] + ' พ.ศ. ' + (d.getFullYear() + 543);
+}
+function openCert(c, back) {
+  S.cert = c; S.certImg = ''; S.certBack = back; go('cert');
+  drawCert(c).then(function (url) { S.certImg = url; if (S.view === 'cert') render(); }).catch(function (e) { toast('สร้างเกียรติบัตรไม่สำเร็จ: ' + e.message, true); });
+}
+function viewCert() {
+  var c = S.cert, file = 'เกียรติบัตร-' + c.name.replace(/\s+/g, '_') + '.png';
+  var img = S.certImg ? '<img src="' + S.certImg + '" alt="เกียรติบัตรของ ' + esc(c.name) + '" style="width:100%;display:block;border-radius:18px">' : '<div class="empty" style="aspect-ratio:1.414;display:flex;align-items:center;justify-content:center;gap:12px"><span class="spinner"></span>กำลังสร้างเกียรติบัตร...</div>';
+  return '<div class="row" style="margin-bottom:18px"><button class="btn sm" data-act="certBack">' + SVG.back + 'กลับ</button><h2 style="font-size:30px">เกียรติบัตรของคุณ</h2></div>' +
+    '<div class="card pop" style="padding:14px">' + img + '</div>' +
+    '<div class="row" style="justify-content:center;margin-top:22px">' +
+    (S.certImg ? '<a class="btn yellow big" href="' + S.certImg + '" download="' + esc(file) + '">บันทึกเป็นรูปภาพ</a>' : '') +
+    '<button class="btn big" data-act="certPrint"' + (S.certImg ? '' : ' disabled') + '>พิมพ์ / บันทึกเป็น PDF</button></div>' +
+    '<p class="muted" style="text-align:center;font-size:14px;margin-top:12px">บนมือถือ กดค้างที่รูปเกียรติบัตรเพื่อบันทึกลงเครื่องได้</p>';
+}
+function printCert() {
+  var old = document.getElementById('printArea'); if (old) old.remove();
+  var d = document.createElement('div'); d.id = 'printArea'; d.innerHTML = '<img src="' + S.certImg + '" alt="">';
+  document.body.appendChild(d);
+  setTimeout(function () { window.print(); }, 200);
+}
+function rr(x, a, b, w, h, r) { x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath(); }
+function starPath(x, cx, cy, R1, r1, n) { x.beginPath(); for (var i = 0; i < n * 2; i++) { var rad = i % 2 ? r1 : R1, ang = Math.PI / n * i - Math.PI / 2; x.lineTo(cx + rad * Math.cos(ang), cy + rad * Math.sin(ang)); } x.closePath(); }
+function drawCert(c) {
+  var W = 1600, H = 1131, INKC = '#1F2346', GOLD = '#C9A227';
+  var FD = "'Mitr', 'Prompt', sans-serif", FB = "'IBM Plex Sans Thai Looped', 'Sarabun', sans-serif";
+  var fontsP = document.fonts ? Promise.all(['700 40px Mitr', '600 40px Mitr', '500 40px Mitr', '500 20px "IBM Plex Sans Thai Looped"', '400 20px "IBM Plex Sans Thai Looped"'].map(function (f) { return document.fonts.load(f, 'กขค'); })).catch(function () {}) : Promise.resolve();
+  var sigSrcP = SIG !== null ? Promise.resolve(SIG) : api('getSignature').then(function (d) { SIG = d || ''; return SIG; }).catch(function () { return ''; });
+  var sigP = sigSrcP.then(function (src) { return new Promise(function (res) { if (!src) return res(null); var im = new Image(); im.onload = function () { res(im); }; im.onerror = function () { res(null); }; im.src = src; }); });
+  return Promise.all([fontsP, sigP]).then(function (arr) {
+    var sig = arr[1];
+    var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    var x = cv.getContext('2d');
+    x.fillStyle = '#FFFDF5'; x.fillRect(0, 0, W, H);
+    x.fillStyle = 'rgba(201,162,39,.12)';
+    for (var i = 40; i < W; i += 30) for (var j = 40; j < H; j += 30) { x.beginPath(); x.arc(i, j, 1.6, 0, 7); x.fill(); }
+    rr(x, 28, 28, W - 56, H - 56, 36); x.lineWidth = 12; x.strokeStyle = INKC; x.stroke();
+    rr(x, 56, 56, W - 112, H - 112, 24); x.lineWidth = 4; x.strokeStyle = GOLD; x.stroke();
+    rr(x, 68, 68, W - 136, H - 136, 18); x.lineWidth = 1.5; x.stroke();
+    [[96, 96], [W - 96, 96], [96, H - 96], [W - 96, H - 96]].forEach(function (p) { starPath(x, p[0], p[1], 18, 8, 5); x.fillStyle = '#FFC93C'; x.fill(); x.lineWidth = 2.5; x.strokeStyle = INKC; x.stroke(); });
+    // atom emblem
+    x.save(); x.translate(W / 2, 150);
+    x.beginPath(); x.arc(0, 0, 58, 0, 7); x.fillStyle = '#FFC93C'; x.fill(); x.lineWidth = 5; x.strokeStyle = INKC; x.stroke();
+    x.lineWidth = 3.5; [0, 60, -60].forEach(function (d) { x.save(); x.rotate(d * Math.PI / 180); x.beginPath(); x.ellipse(0, 0, 42, 16, 0, 0, 7); x.stroke(); x.restore(); });
+    x.beginPath(); x.arc(0, 0, 9, 0, 7); x.fillStyle = '#FF5D7A'; x.fill(); x.stroke(); x.restore();
+    function t(txt, y, font, color, maxW, cx) {
+      var m = font.match(/(\d+)px/), size = Number(m[1]);
+      x.font = font; while (x.measureText(txt).width > (maxW || 1300) && size > 14) { size -= 2; x.font = font.replace(/\d+px/, size + 'px'); }
+      x.fillStyle = color; x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+      var tw = x.measureText(txt).width;
+      x.fillText(txt, Math.round((cx || W / 2) - tw / 2), y);
+    }
+    t('เกียรติบัตร', 300, '700 100px ' + FD, INKC);
+    t(CERT.org, 368, '500 36px ' + FD, INKC);
+    t('ขอมอบเกียรติบัตรฉบับนี้ไว้เพื่อแสดงว่า', 440, '500 30px ' + FB, '#4A4F6E');
+    t(c.name, 540, '600 78px ' + FD, '#2F5BE0', 1150);
+    x.setLineDash([4, 10]); x.lineWidth = 3; x.strokeStyle = GOLD; x.beginPath(); x.moveTo(W / 2 - 460, 572); x.lineTo(W / 2 + 460, 572); x.stroke(); x.setLineDash([]);
+    t('ผู้เรียน' + (LV[c.grade] ? LV[c.grade].label : '') + '  ' + c.room, 632, '500 30px ' + FB, INKC);
+    var subj = c.quizGrade && LV[c.quizGrade] ? 'รายวิชาวิทยาศาสตร์ (' + LV[c.quizGrade].code + ') ' + LV[c.quizGrade].label : 'วิชาวิทยาศาสตร์ โหมดท้าทาย รวมทุกระดับ';
+    t('ได้ผ่านการทดสอบ' + subj + (c.strand && c.strand !== 'ทุกหัวข้อ' ? ' หัวข้อ' + c.strand : ''), 690, '500 30px ' + FB, INKC);
+    t('ด้วยคะแนน ' + c.score + ' จาก ' + c.total + ' ข้อ คิดเป็นร้อยละ ' + c.pct, 752, '600 36px ' + FD, '#1D7A4E');
+    t('ให้ไว้ ณ วันที่ ' + (c.certDate || thaiDateJs(new Date())), 812, '500 28px ' + FB, INKC);
+    // seal
+    var sx = 380, sy = 890;
+    x.fillStyle = '#FF5D7A'; x.strokeStyle = INKC; x.lineWidth = 3;
+    [[-34, 1], [34, -1]].forEach(function (rb) { x.beginPath(); x.moveTo(sx + rb[0] - 22, sy + 40); x.lineTo(sx + rb[0] + 22, sy + 40); x.lineTo(sx + rb[0] + 22 + rb[1] * 6, sy + 130); x.lineTo(sx + rb[0] + rb[1] * 3, sy + 112); x.lineTo(sx + rb[0] - 22 + rb[1] * 6, sy + 130); x.closePath(); x.fill(); x.stroke(); });
+    starPath(x, sx, sy, 92, 80, 24); x.fillStyle = GOLD; x.fill(); x.lineWidth = 4; x.stroke();
+    x.beginPath(); x.arc(sx, sy, 66, 0, 7); x.fillStyle = '#FFE27A'; x.fill(); x.lineWidth = 3; x.stroke();
+    t('ผ่านเกณฑ์', sy - 4, '600 24px ' + FD, INKC, 104, sx);
+    t('ร้อยละ ' + PASS_PCT, sy + 28, '500 20px ' + FD, INKC, 104, sx);
+    // signature block
+    var bx = 1130;
+    if (sig) { var sh = 118, sw = sig.width * sh / sig.height; x.drawImage(sig, bx - sw / 2, 850, sw, sh); }
+    else { x.setLineDash([8, 8]); x.strokeStyle = '#9CA0C0'; x.lineWidth = 2; rr(x, bx - 150, 856, 300, 108, 14); x.stroke(); x.setLineDash([]); t('[ลายเซ็น]', 918, '500 22px ' + FB, '#9CA0C0', 280, bx); }
+    x.strokeStyle = INKC; x.lineWidth = 1.5; x.beginPath(); x.moveTo(bx - 210, 975); x.lineTo(bx + 210, 975); x.stroke();
+    t('(' + CERT.signer + ')', 1012, '500 30px ' + FB, INKC, 620, bx);
+    t(CERT.position, 1052, '500 22px ' + FB, INKC, 700, bx);
+    x.textAlign = 'left'; x.font = '500 20px ' + FB; x.fillStyle = '#4A4F6E';
+    x.fillText('เลขที่ ' + (c.certNo || '-'), 136, H - 100);
+    return cv.toDataURL('image/png');
+  });
+}
+
+/* ================= เริ่มต้น ================= */
+(function init() {
+  var pw = sstore('wsn_tpw'); if (pw) S.tpw = pw;
+  render();
+  loadSummary();
+})();
+</script>
+</body>
+</html>
